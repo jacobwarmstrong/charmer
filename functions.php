@@ -143,10 +143,9 @@ add_action( 'widgets_init', 'charmer_widgets_init' );
  * Enqueue scripts and styles.
  */
 function charmer_scripts() {
-	wp_enqueue_style( 'charmer-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'bootstrap-style', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" );
     wp_enqueue_style( 'google-fonts-style', "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=PT+Serif+Caption&display=swap" );
-    
+    wp_enqueue_style( 'charmer-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'charmer-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'charmer-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );

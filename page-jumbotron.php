@@ -18,8 +18,22 @@ get_header();
 
 	<main id="primary" class="site-main">
         <div class="jumbotron jumbotron-fluid">
-            <h1>Sign Products From People Who Care</h1>
-            <p></p>
+            <div class="container">
+                <div class="row">
+                 <div class="col-md-7">
+                    <h1>Sign Products From People Who Care</h1>
+                    <p class="lead">We’ve been keeping people
+happy for over 30 years with
+our comprehensive sign solutions.</p>
+                     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                 </div>
+                 <div class="col-md-5">
+                     <img src="http://ako-signs/wp-content/uploads/bruce-melissa-line.png">
+                 </div>
+                </div>
+
+            </div>
+
         </div>
 
 		<?php
