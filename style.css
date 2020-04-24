@@ -379,6 +379,10 @@ textarea {
 	line-height: 1.5;
 }
 
+h1 {
+    font-family: "Alfa Slab One";
+}
+
 h1,
 h2,
 h3,
@@ -389,6 +393,7 @@ h6 {
 }
 
 p {
+    font-family: "PT Sans";
 	margin-bottom: 1.5em;
 }
 
