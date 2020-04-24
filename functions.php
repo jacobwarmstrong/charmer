@@ -154,6 +154,8 @@ function charmer_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+    
+    wp_enqueue_script( 'charmer-add-class-to-nav-links', get_template_directory_uri() . '/js/add-class-to-nav-links.js', array(), _S_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'charmer_scripts' );
 
@@ -183,4 +185,13 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+//add bootstrap class nav-item to menus
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+function special_nav_class($classes, $item){
+    $classes[] = 'nav-item';
+    return $classes;
+}
+
+
 
