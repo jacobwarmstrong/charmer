@@ -527,8 +527,13 @@ table {
 	width: 100%;
 }
 
+.jumbotron-reach-top {
+    margin-top: -79px;
+}
+
 .jumbotron {
     background-color: #a8d6ff;
+    padding: 6rem 2rem 4rem 2rem;
 }
 
 .btn-primary {
@@ -658,6 +663,80 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	display: block;
+	left: auto;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+.hovering-nav a {
+    color: rgba(0,0,0,.5);
+}
+
+.main-navigation a:visited {
+    color: #fff;
+}
+
+.hovering-nav a:visited {
+    color: rgba(0,0,0,.5);
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: flex;
+	}
+}
 
 .site-main .comment-navigation,
 .site-main

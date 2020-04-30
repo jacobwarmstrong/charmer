@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main jumbotron-reach-top">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <div class="row">
