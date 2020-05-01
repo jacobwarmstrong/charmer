@@ -539,7 +539,8 @@ table {
 .btn-primary {
     color: #fff;
     background-color: #307dff;
-    border-color: #fff;
+    border: 1.5px solid #fff;
+    box-shadow: 0 0 0 3px #307dff;
 }
 
 .btn-primary:visited {
@@ -870,7 +871,7 @@ a:active {
 
 .post,
 .page {
-	margin: 0 0 1.5em;
+	
 }
 
 .updated:not(.published) {

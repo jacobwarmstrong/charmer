@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying page content in page.php
+ * Template part for displaying page content for the home page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -13,9 +13,6 @@
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
-
-	<?php charmer_post_thumbnail(); ?>
-
 	<div class="entry-content">
 		<?php
 		the_content();
