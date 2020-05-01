@@ -665,7 +665,10 @@ a:active {
 --------------------------------------------------------------*/
 
 #site-navigation {
-    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .main-navigation ul {
@@ -713,24 +716,27 @@ a:active {
 	text-decoration: none;
 }
 
-.main-navigation a:visited {
+.nav-link:visited {
     color: #fff;
 }
 
-@media screen and (max-width: 1024px) {
-    .main-navigation a {
-        color: rgba(43,47,102,0.5);
-    }
-    .main-navigation a:visited {
-        color: rgba(43,47,102,0.5);
-    }
+.dark-navy {
+    color: rgba(43,47,102,.8);
 }
 
-.toggled {
-    background-color: #ffffff;
+.dark-navy:visited {
+    color: rgba(43,47,102,.08); 
+}
+
+.white-bg {
+    background-color: #fff;
 }
 
 /* Small menu. */
+.navbar-toggler {
+    border: 1px solid rgba(255,255,255,.8);
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;

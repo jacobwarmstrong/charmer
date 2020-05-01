@@ -26,7 +26,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'charmer' ); ?></a>
 
 	<header id="masthead" class="site-header">
-        <nav id="site-navigation" class="main-navigation navbar navbar-expand-lg">
+        <nav id="site-navigation" class="main-navigation navbar navbar-expand-lg navbar-dark">
             <div class="site-branding navbar-brand">
                 <?php
                 if(has_custom_logo()) {
