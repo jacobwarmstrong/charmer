@@ -12,18 +12,31 @@ nav.addEventListener('mouseout', function() {
    nav.classList.remove('hovering-nav');
 });*/
 
-var nav = jQuery('.main-navigation');
-nav.hover(function() {
-    nav.animate({
-      backgroundColor: '#ffffff',
-    }, 200, function() {
-        console.log('what');
-    });            
+var header = jQuery('#masthead');
+
+header.hover(function() {
+    if( jQuery(document).width() > 1024 ) {
+        console.log(jQuery(document).width() > 1024);
+        header.animate({
+          backgroundColor: '#ffffff',
+        }, 200, function() {
+        });
+        jQuery('.nav-link').css('color', 'rgba(43,47,102,0.8)');
+    }
 });
-nav.mouseleave(function() {
-    nav.animate({
-      backgroundColor: 'transparent',
-    }, 200, function() {
-        console.log('what');
-    });            
+header.mouseleave(function() {
+    if( jQuery(document).width() > 1024 ) {
+        header.animate({
+          backgroundColor: 'transparent',
+        }, 200, function() {
+    });
+        jQuery('.nav-link').css('color', '#ffffff');
+    }
 });
+
+jQuery(".navbar-toggler").click(function() {
+    if(jQuery(document).width() < 1024) {
+        header.css('backgroundColor', '#ffffff');
+        jQuery('.nav-link').css('color', 'rgba(43,47,102,0.8)');
+    }
+})
