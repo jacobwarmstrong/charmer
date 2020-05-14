@@ -9,10 +9,53 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'container' ); ?>>
-	<header class="entry-header">
+	<header class="entry-header container">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <?php echo wp_get_attachment_image(get_field('image')); ?>
+            </div>
+            <div class="col-lg-8">
+                <h3><?php the_field('headline'); ?></h3>
+                <p><?php the_field('copy'); ?></p>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <?php echo wp_get_attachment_image(get_field('image2')); ?>
+            </div>
+            <div class="col-lg-8">
+                <h3><?php the_field('headline2'); ?></h3>
+                <p><?php the_field('copy2'); ?></p>
+
+            </div>
+        </div>
+    </div>
+    <div class="grey-box">
+        <div class="container py-5">
+            <h3>We Work with the Big Names</h3>
+            <div class=" d-flex flex-column flex-md-row align-content-stretch flex-wrap  my-3">
+            <?php
+            $dir = '../wp-content/uploads/charmer-clients';
+            $dir = wp_upload_dir()['path'] . '/charmer-clients/';
+            $url = wp_upload_dir()['url'] . '/charmer-clients/';
+            $files = scandir($dir);
+            foreach ($files as $file) :
+                if(strpos($file, '.') !== 0) : ?>
+                    <div class="col-md-3 my-3 my-md-0 align-self-center d-flex justify-content-center">
+                        <img class="" src="<?php echo $url . $file; ?>">
+                    </div>
+                <?php endif;
+            endforeach;
+            ?>
+            </div>
+        </div>
+    </div>
+    
+    
 	<div class="entry-content">
 		<?php
 		the_content();
@@ -48,4 +91,3 @@
 			?>
 		</footer><!-- .entry-footer -->
 	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->

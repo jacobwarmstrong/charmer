@@ -538,9 +538,7 @@ table {
 
 .btn-primary {
     color: #fff;
-    background-color: #307dff;
-    border: 1.5px solid #fff;
-    box-shadow: 0 0 0 3px #307dff;
+    background-color: #ff7700;
 }
 
 .btn-primary:visited {
@@ -1009,4 +1007,10 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+
+/*---------CHARMER-----------*/
+.grey-box {
+    background-color: #eee;
 }

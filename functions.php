@@ -204,5 +204,55 @@ function special_nav_class($classes, $item){
     return $classes;
 }
 
+//barrowed from previous theme for AKO
+function ako_signs_custom_post_types() {
+  /*register_post_type( 'home_carousel',
+    array(
+      'labels' => array(
+        'name' =>  'Home Carousel' ,
+        'singular_name' => 'Home Carousel' 
+      ),
+      'public' => true,
+      'has_archive' => false,
+      'supports' => array( 'title', 'editor', 'thumbnail')
+    )
+  );*/
+  register_post_type( 'products',
+    array(
+      'labels' => array(
+        'name' =>  'Sign Products' ,
+        'singular_name' => 'Product' 
+      ),
+      'public' => true,
+      'has_archive' => false,
+      'supports' => array( 'title', 'editor', 'thumbnail')
+    )
+  );
+  register_post_type( 'services',
+    array(
+      'labels' => array(
+        'name' =>  'Services' ,
+        'singular_name' => 'Service' 
+      ),
+      'public' => true,
+      'has_archive' => false,
+      'supports' => array( 'title', 'editor', 'thumbnail')
+    )
+  );
+  register_post_type( 'testimonials',
+    array(
+      'labels' => array(
+        'name' =>  'Testimonials' ,
+        'singular_name' => 'Testimonials' 
+      ),
+      'public' => true,
+      'has_archive' => false,
+      'supports' => array( 'title', 'editor', 'thumbnail')
+    )
+  );
+}
+
+add_action( 'init', 'ako_signs_custom_post_types' );
+
 
 

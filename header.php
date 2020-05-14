@@ -26,7 +26,9 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'charmer' ); ?></a>
 
 	<header id="masthead" class="site-header">
+        
         <nav id="site-navigation" class="main-navigation navbar navbar-expand-lg navbar-dark">
+            <div class="container">
             <div class="site-branding navbar-brand">
                 <?php
                 if(has_custom_logo()) {
@@ -54,10 +56,13 @@
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
-                    'menu_class'     => 'main-navigation navbar-nav mr-auto'
+                    'menu_class'     => 'main-navigation navbar-nav',
+                    'container_class' => 'mr-auto'
 				)
 			);
 			?>
+            <a class="btn btn-outline-light nav-link" href="<?php echo get_page_link(136); ?>" role="button">Contact</a>
           </div>
+        </div>
         </nav> 
 	</header><!-- #masthead -->

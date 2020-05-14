@@ -17,18 +17,16 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main jumbotron-reach-top">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" style="background-color: <?php echo the_field('jumbotron_background_color'); ?>">
             <div class="container">
                 <div class="row">
-                 <div class="col-md-7">
-                    <h1>Sign Products From People Who Care</h1>
-                    <p class="lead">We’ve been keeping people
-happy for over 30 years with
-our comprehensive sign solutions.</p>
-                     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                 <div class="col-md-6">
+                    <h1><?php echo the_field('cta_headline'); ?></h1>
+                    <p class="lead"><?php echo the_field('cta_description'); ?></p>
+                     <a class="btn btn-primary btn-lg" href="#" role="button"><?php echo the_field('cta_button_label'); ?></a>
                  </div>
-                 <div class="col-md-5">
-                     <img src="http://ako-signs/wp-content/uploads/bruce-melissa-line.png">
+                 <div class="col-md-6">
+                     <img src="<?php echo the_field('cta_image'); ?>">
                  </div>
                 </div>
 
@@ -41,6 +39,8 @@ our comprehensive sign solutions.</p>
 			the_post();
             if(is_front_page()) {
                 get_template_part( 'template-parts/content', 'home' );
+            } elseif(get_the_title() == 'Services') {
+                get_template_part( 'template-parts/content', 'services');
             } else {
                 get_template_part( 'template-parts/content', 'page' );
             }
