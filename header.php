@@ -9,6 +9,15 @@
  * @package charmer
  */
 
+//select navbar classes based on page template
+if ( is_page_template('page-jumbotron.php') ) {
+    $nav_classes = ' navbar-dark';
+    $contact_classes = ' btn-outline-light nav-link';
+} else {
+    $nav_classes = ' navbar-light';
+    $contact_classes = ' btn-outline-dark';
+}
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -27,7 +36,7 @@
 
 	<header id="masthead" class="site-header">
         
-        <nav id="site-navigation" class="main-navigation navbar navbar-expand-lg navbar-dark">
+        <nav id="site-navigation" class="main-navigation navbar navbar-expand-lg <?php echo $nav_classes; ?>">
             <div class="container">
             <div class="site-branding navbar-brand">
                 <?php
@@ -61,7 +70,25 @@
 				)
 			);
 			?>
-            <a class="btn btn-outline-light nav-link" href="<?php echo get_page_link(136); ?>" role="button">Contact</a>
+            <?php
+            if ( is_woocommerce() || is_page('My Account') ) : ?>
+              <div class="dropdown mr-5">
+                <a href="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <?php
+                	printf(
+                    /* translators: 1: user display name*/
+                    __( '%1$s', 'woocommerce' ),
+                     esc_html( wp_get_current_user()->display_name ),
+                    esc_url( wc_logout_url() )
+	               ); ?>
+                </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">My Account</a>
+                      <a class="dropdown-item" href="#">Cart</a>
+                  </div>
+              </div>
+            <?php endif; ?>
+            <a class="btn <?php echo $contact_classes; ?>" href="<?php echo get_page_link(136); ?>" role="button">Contact</a>
           </div>
         </div>
         </nav> 

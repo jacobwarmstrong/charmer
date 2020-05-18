@@ -9,10 +9,11 @@
 
 ?>
 
-	<header class="entry-header container">
+	<header class="entry-header container py-2">
         <h2>Sign Services</h2>
+        <p>AKO Signs is a service oriented company. We believe great service is the foundation of a great company and business relationship. AKO Signs offers all services related to signage and small business branding.</p>
 	</header><!-- .entry-header -->
-    <div class="container py-5 d-flex flex-wrap">
+    <div class="container py-2 d-flex flex-wrap">
         <?php
             // The Query
             $the_query = new WP_Query( array('post_type' => 'services') );
@@ -32,17 +33,18 @@
     </div>
 	<header class="entry-header container">
         <h2>Sign Products</h2>
+        <p>There exists such a diversity of sign products and each business and industry has its own needs. That’s why why encourage you to reach out to one of our sign experts to help you find what will be most effective for your business.</p>
 	</header><!-- .entry-header -->
     <div class="container py-5 d-flex flex-wrap">
         <?php
             // The Query
-            $the_query = new WP_Query( array('post_type' => 'products') );
+            $the_query = new WP_Query( array('post_type' => 'sign-products') );
 
             // The Loop
             if ( $the_query->have_posts() ) {
                 while ( $the_query->have_posts() ) {
                     $the_query->the_post();
-                    get_template_part('template-parts/content', 'product');
+                    get_template_part('template-parts/content', 'sign-product');
                 }
             } else {
                 // no posts found

@@ -9,14 +9,14 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('row py-5'); ?>>
-    <div class="col-sm-3 mb-4 d-flex justify-content-center">
-        <?php the_post_thumbnail(); ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('row mb-4'); ?>>
+    <div class="col-sm-3 mb-4">
+        <?php the_post_thumbnail('post-thumbnail', ['class' => 'icon img-fluid mx-auto d-block'] ); ?>
     </div>
     <div class="col-sm-9">
     	<header class="entry-header">
 		<?php
-			the_title( '<h2 class="entry-title">', '</h2>' );
+			the_title( '<h4 class="entry-title">', '</h4>' );
         ?>
 	</header><!-- .entry-header -->
 	<div class="entry-content">

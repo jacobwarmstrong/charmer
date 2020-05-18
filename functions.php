@@ -100,7 +100,12 @@ if ( ! function_exists( 'charmer_setup' ) ) :
 				'flex-height' => true,
 			)
 		);
-	}
+
+        /**
+        * Add WooCommerce
+        */
+	    add_theme_support( 'woocommerce' );
+    }      
 endif;
 add_action( 'after_setup_theme', 'charmer_setup' );
 
@@ -158,11 +163,13 @@ function charmer_scripts() {
     
     wp_enqueue_script( 'charmer-add-class-to-nav-links', get_template_directory_uri() . '/js/add-class-to-nav-links.js', array(), _S_VERSION, true );
     
-    wp_enqueue_script( 'charmer-navbar', get_template_directory_uri() . '/js/navbar.js', array(), _S_VERSION, true );
+    if ( is_page_template( 'page-jumbotron.php' ) ) {
+        wp_enqueue_script( 'charmer-navbar', get_template_directory_uri() . '/js/navbar.js', array(), _S_VERSION, true );
+    }
     
-    //wp_enqueue_script( 'bootstrap-js-jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), _S_VERSION, true  );
+    wp_enqueue_script( 'bootstrap-js-jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), _S_VERSION, true  );
     
-    wp_enqueue_script( 'jquery-ui-min', "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js", array(), _S_VERSION, true );
+    //wp_enqueue_script( 'jquery-ui-min', "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js", array(), _S_VERSION, true );
     
     wp_enqueue_script( 'bootstrap-js-popper', "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js", array(), _S_VERSION, true );
         
@@ -217,11 +224,11 @@ function ako_signs_custom_post_types() {
       'supports' => array( 'title', 'editor', 'thumbnail')
     )
   );*/
-  register_post_type( 'products',
+  register_post_type( 'sign-products',
     array(
       'labels' => array(
         'name' =>  'Sign Products' ,
-        'singular_name' => 'Product' 
+        'singular_name' => 'Sign Product' 
       ),
       'public' => true,
       'has_archive' => false,
@@ -251,8 +258,33 @@ function ako_signs_custom_post_types() {
     )
   );
 }
-
 add_action( 'init', 'ako_signs_custom_post_types' );
 
+function charmer_output_content_wrapper() {
+    echo '<div id="primary" class="content-area"><main id="main" class="site-main container" role="main">';
+}
 
+//Add Bootstrap container to woocommerce pages
+add_action( 'wp_head', 'remove_woocommerce_container');
+function remove_woocommerce_container() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+    add_action('woocommerce_before_main_content', 'charmer_output_content_wrapper', 10 );
+}
+
+function charmer_shop_mobile_navbar() {
+    if ( is_woocommerce() ) {
+        get_template_part('woocommerce/mobile', 'navbar');
+    }
+}
+add_action( 'wp_head', 'charmer_shop_mobile_navbar', 10);
+
+if ( ! function_exists( 'akoSigns_register_nav_menu' ) ) {
+ 
+    function akoSigns_register_nav_menu(){
+        register_nav_menus( array(
+            'shop_menu'  => __( 'Shop Menu', 'text_domain' ),
+        ) );
+    }
+    add_action( 'after_setup_theme', 'akoSigns_register_nav_menu', 0 );
+}
 

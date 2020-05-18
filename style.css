@@ -379,7 +379,7 @@ textarea {
 	line-height: 1.5;
 }
 
-h1 {
+.jumbotron h1 {
     font-family: "Source Sans Pro";
     font-size: 3em;
     font-weight: 800;
@@ -389,6 +389,7 @@ h1 {
     color: #fff;
 }
 
+h1,
 h2,
 h3,
 h4,
@@ -494,11 +495,6 @@ hr {
 	margin-bottom: 1.5em;
 }
 
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
-}
-
 ul {
 	list-style: disc;
 }
@@ -510,7 +506,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 0;
 }
 
 dt {
@@ -654,7 +650,7 @@ a {
 }
 
 a:visited {
-	color: #800080;
+	color: #3759bf;
 }
 
 a:hover,
@@ -741,7 +737,11 @@ a:active {
 }
 
 .white-bg {
-    background-color: #fff;
+    background-color: rgba(0,0,0,0.05);
+}
+
+.blue-nav {
+    background-color: #2695ff;
 }
 
 /* Small menu. */
@@ -754,6 +754,10 @@ a:active {
 	display: block;
 }
 
+.sign-products-list {
+    margin-left: 0;
+}
+
 @media screen and (min-width: 37.5em) {
 
 	.menu-toggle {
@@ -763,6 +767,10 @@ a:active {
 	.main-navigation ul {
 		display: flex;
 	}
+    
+    .sign-products-list {
+        height: 300px;
+    }
 }
 
 .site-main .comment-navigation,
@@ -950,9 +958,12 @@ object {
 	display: inline-block;
 }
 
-.icon {
-    max-width: 50%;
+@media screen and (max-width: 37.5em) {
+    .icon {
+        max-width: 50%;
+    }
 }
+
 
 /*--------------------------------------------------------------
 ## Captions
@@ -1033,6 +1044,22 @@ object {
 }
 
 .site-footer {
-    background-color: #273547;
+    background-color: #222;
     color: #fff;
+}
+
+.charmer-shop-navbar-mobile {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,1);     
+}
+
+@media screen and (min-width: 37.5em) {
+    .charmer-shop-navbar-mobile {
+        display: none;
+    } 
 }
