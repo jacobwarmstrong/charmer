@@ -127,7 +127,7 @@ if ( ! function_exists( 'charmer_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<div class="post-thumbnail mb-4">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 

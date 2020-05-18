@@ -6,14 +6,14 @@
  *
  * @package charmer
  */
-
 ?>
 
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('col-md-4'); ?>>
-    <?php charmer_post_thumbnail(); ?>
+    <?php the_post_thumbnail('thumbnail', ['class' => 'icon mb-4']); ?>
 	<header class="entry-header">
 		<?php
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title">', '</h2>' );
         ?>
 	</header><!-- .entry-header -->
 

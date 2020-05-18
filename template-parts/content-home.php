@@ -10,24 +10,24 @@
 ?>
 
 	<header class="entry-header container">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
 	</header><!-- .entry-header -->
     <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-4">
-                <?php echo wp_get_attachment_image(get_field('image')); ?>
+        <div class="row my-4">
+            <div class="col-sm-3 mb-4">
+                <?php echo wp_get_attachment_image(get_field('image') , 'large', false, ['class' => 'img-fluid mx-auto d-block']); ?>
             </div>
-            <div class="col-lg-8">
+            <div class="col-sm-9">
                 <h3><?php the_field('headline'); ?></h3>
                 <p><?php the_field('copy'); ?></p>
 
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <?php echo wp_get_attachment_image(get_field('image2')); ?>
+            <div class="col-sm-3 mb-4">
+                <?php echo wp_get_attachment_image(get_field('image2') , 'large', false, ['class' => 'img-fluid mx-auto d-block']); ?>
             </div>
-            <div class="col-lg-8">
+            <div class="col-sm-9">
                 <h3><?php the_field('headline2'); ?></h3>
                 <p><?php the_field('copy2'); ?></p>
 

@@ -380,7 +380,9 @@ textarea {
 }
 
 h1 {
-    font-family: "Alfa Slab One";
+    font-family: "Source Sans Pro";
+    font-size: 3em;
+    font-weight: 800;
 }
 
 .jumbotron h1, .jumbotron p {
@@ -392,7 +394,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "PT Serif Caption";
+    font-family: "Source Sans Pro";
+    font-weight: 800;
 }
 
 h1,
@@ -457,6 +460,11 @@ ins {
 
 big {
 	font-size: 125%;
+}
+
+.btn {
+    font-family: 'Source Sans Pro';
+    font-weight: 800;
 }
 
 /*--------------------------------------------------------------
@@ -539,6 +547,11 @@ table {
 .btn-primary {
     color: #fff;
     background-color: #ff7700;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #ff9233;
 }
 
 .btn-primary:visited {
@@ -937,6 +950,10 @@ object {
 	display: inline-block;
 }
 
+.icon {
+    max-width: 50%;
+}
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -1013,4 +1030,9 @@ object {
 /*---------CHARMER-----------*/
 .grey-box {
     background-color: #eee;
+}
+
+.site-footer {
+    background-color: #273547;
+    color: #fff;
 }

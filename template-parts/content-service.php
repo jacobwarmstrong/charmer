@@ -10,13 +10,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('row py-5'); ?>>
-    <div class="col-md-4">
-        <?php charmer_post_thumbnail(); ?>
+    <div class="col-sm-3 mb-4 d-flex justify-content-center">
+        <?php the_post_thumbnail(); ?>
     </div>
-    <div class="col-md-8">
+    <div class="col-sm-9">
     	<header class="entry-header">
 		<?php
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title">', '</h2>' );
         ?>
 	</header><!-- .entry-header -->
 	<div class="entry-content">

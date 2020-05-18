@@ -25,8 +25,8 @@ get_header();
                     <p class="lead"><?php echo the_field('cta_description'); ?></p>
                      <a class="btn btn-primary btn-lg" href="#" role="button"><?php echo the_field('cta_button_label'); ?></a>
                  </div>
-                 <div class="col-md-6">
-                     <img src="<?php echo the_field('cta_image'); ?>">
+                 <div class="col-md-6 my-5">
+                     <img src="<?php echo the_field('cta_image'); ?>" class="img-fluid mx-auto d-block">
                  </div>
                 </div>
 
