@@ -1072,3 +1072,7 @@ object {
 .site-main {
     min-height: calc(100vh - 200px);
 }
+
+.dropdown-toggle a h2 {
+    display: inline-block;
+}
