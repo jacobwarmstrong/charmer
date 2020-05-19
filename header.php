@@ -71,7 +71,8 @@ if ( is_page_template('page-jumbotron.php') ) {
 			);
 			?>
             <?php
-            if ( is_woocommerce() || is_page('My Account') ) : ?>
+            if ( is_woocommerce() || is_page('My Account') ) : 
+              if ( is_user_logged_in() ) : ?>
               <div class="dropdown mr-5">
                 <a href="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <?php
@@ -87,7 +88,10 @@ if ( is_page_template('page-jumbotron.php') ) {
                       <a class="dropdown-item" href="#">Cart</a>
                   </div>
               </div>
-            <?php endif; ?>
+              <?php else : ?>
+              <a href="/my-account" class="mr-5">Login</a>
+              <?php endif;
+             endif; ?>
             <a class="btn <?php echo $contact_classes; ?>" href="<?php echo get_page_link(136); ?>" role="button">Contact</a>
           </div>
         </div>
