@@ -288,3 +288,55 @@ if ( ! function_exists( 'akoSigns_register_nav_menu' ) ) {
     add_action( 'after_setup_theme', 'akoSigns_register_nav_menu', 0 );
 }
 
+// add categories for attachments
+function add_categories_for_attachments() {
+    register_taxonomy_for_object_type( 'category', 'attachment' );
+}
+add_action( 'init' , 'add_categories_for_attachments' );
+
+// add tags for attachments
+function add_tags_for_attachments() {
+    register_taxonomy_for_object_type( 'post_tag', 'attachment' );
+}
+add_action( 'init' , 'add_tags_for_attachments' );
+
+
+//hook into the init action and call create taxonomy when it fires
+ 
+add_action( 'init', 'create_industry_nonhierarchical_taxonomy', 0 );
+ 
+function create_industry_nonhierarchical_taxonomy() {
+ 
+// Labels part for the GUI
+ 
+  $labels = array(
+    'name' => _x( 'Industries', 'taxonomy general name' ),
+    'singular_name' => _x( 'Industry', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Industries' ),
+    'popular_items' => __( 'Popular Industries' ),
+    'all_items' => __( 'All Industries' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Industry' ), 
+    'update_item' => __( 'Update Industry' ),
+    'add_new_item' => __( 'Add New Industry' ),
+    'new_item_name' => __( 'New Industry Name' ),
+    'separate_items_with_commas' => __( 'Separate industries with commas' ),
+    'add_or_remove_items' => __( 'Add or remove industries' ),
+    'choose_from_most_used' => __( 'Choose from the most used industries' ),
+    'menu_name' => __( 'Industries' ),
+  ); 
+ 
+// Now register the non-hierarchical taxonomy like tag
+ 
+  register_taxonomy('industries','attachment',array(
+    'hierarchical' => false,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'industry' ),
+  ));
+}
+

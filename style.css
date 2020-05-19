@@ -1063,3 +1063,12 @@ object {
         display: none;
     } 
 }
+
+/* clears password input off of label on login form */
+.woocommerce form .form-row label, .woocommerce-page form .form-row label {
+    width: 100%;
+}
+
+.site-main {
+    min-height: calc(100vh - 200px);
+}

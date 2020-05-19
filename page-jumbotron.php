@@ -41,6 +41,8 @@ get_header();
                 get_template_part( 'template-parts/content', 'home' );
             } elseif(get_the_title() == 'Services') {
                 get_template_part( 'template-parts/content', 'services');
+            } elseif(get_the_title() == 'Work') {
+                get_template_part( 'template-parts/content', 'work');
             } else {
                 get_template_part( 'template-parts/content', 'page' );
             }

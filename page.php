@@ -34,5 +34,7 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+if ( !is_page(['my-account', 'cart', 'checkout']) ) {
+    get_sidebar();
+}
 get_footer();
