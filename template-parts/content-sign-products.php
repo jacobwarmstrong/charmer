@@ -46,16 +46,14 @@ if ( $the_query->have_posts() ) {
         $img = wp_get_attachment_link( get_post()->id , [600,600], true, ['class' => 'img-fluid'] );
         array_push($attachments, $img);
         
-         $post_tags = get_the_tags();
-        var_dump($post_tags);
+         $post_tags = get_the_tags();;
         if ($post_tags) {
             foreach($post_tags as $tag) {
-                $all_tags_arr[$tag->name] = $tag->term_id; //USING JUST $tag MAKING $all_tags_arr A MULTI-DIMENSIONAL ARRAY, WHICH DOES WORK WITH array_unique
+                $all_tags_arr[$tag->name] = $tag->term_id; 
             }
         }
     }
     $tags_array = array_unique($all_tags_arr); //REMOVES DUPLICATES
-    var_dump($tags_array);
 } else {
     // no posts found
 }

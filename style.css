@@ -736,14 +736,6 @@ a:active {
     color: rgba(43,47,102,.08); 
 }
 
-.white-bg {
-    background-color: rgba(0,0,0,0.05);
-}
-
-.blue-nav {
-    background-color: #2695ff;
-}
-
 /* Small menu. */
 .navbar-toggler {
     border: 1px solid rgba(255,255,255,.8);
