@@ -339,4 +339,3 @@ function create_industry_nonhierarchical_taxonomy() {
     'rewrite' => array( 'slug' => 'industry' ),
   ));
 }
-

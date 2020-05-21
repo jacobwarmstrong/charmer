@@ -48,8 +48,8 @@ if ( $the_query->have_posts() ) {
         
          $post_tags = get_the_tags();;
         if ($post_tags) {
-            foreach($post_tags as $tag) {
-                $all_tags_arr[$tag->name] = $tag->term_id; 
+            foreach($post_tags as $post_tag) {
+                $all_tags_arr[$post_tag->name] = $post_tag->term_id; 
             }
         }
     }
@@ -64,7 +64,7 @@ wp_reset_postdata();
 
 ?>
 
-	<header class="entry-header container">
+	<header class="entry-header">
 		<span>Sign Product</span>
         <div class="dropdown dropdown-toggle">
             <a href="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h2><?php the_title(); ?></h2></a>
@@ -75,25 +75,40 @@ wp_reset_postdata();
               <?php endforeach; ?>
             </div>
         </div>
-        <div class="d-flex flex-row">
-            <?php foreach($tags_array as $tag_name => $tag_id) : ?>
-            <a href="?tag=<?php echo $tag_id; ?>" class="badge badge-pill badge-primary p-3 mr-3"><?php echo $tag_name; ?></a>
-            <?php endforeach; ?>
+        <?php if( !empty($tags_array) ) : ?>
+        <div class="my-2">
+            <span>Tags associated with <?php the_title(); ?>:</span>
+            <div class="d-flex flex-row flex-wrap my-2">
+                <?php foreach($tags_array as $tag_name => $tag_id) :
+                if($tag_id == $tag) {
+                    $tag_class = 'badge-selected';
+                } else {
+                    $tag_class = 'badge-primary';
+                }
+                ?>
+                <a href="?tag=<?php echo $tag_id; ?>" class="badge badge-pill my-1 <?php echo $tag_class; ?> p-2 mr-3"><?php echo $tag_name; ?></a>
+                <?php endforeach; ?>
+            </div>
+            <?php if ($tag) : ?>
+            <a href="?reset=true" class="btn btn-outline-primary my-2">Reset Tag Filter</a>
+            <?php endif; ?>
         </div>
+        <?php endif; ?>
+
 	</header><!-- .entry-header -->
     
-    
 	<div class="entry-content container">
-		<?php
-		the_content(); ?>
-        <div class="row">
-
-        <?php foreach($attachments as $img) : ?>
-        <div class="col-md-4">
-            <?php echo $img; ?>
+        <?php if( !empty($attachments) ) : ?>
+        <div class="charmer-gallery row">
+            <?php foreach($attachments as $img) : ?>
+                <div class="col-md-4">
+                    <?php echo $img; ?>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
-        </div>
+        <?php else: ?>
+        <div class=" alert alert-info">AKO currently doesn't have any pictures of this product to show off! We blame our web developer.</div>
+        <?php endif; ?>
         <?php
 		wp_link_pages(
 			array(
@@ -120,7 +135,7 @@ wp_reset_postdata();
 					),
 					wp_kses_post( get_the_title() )
 				),
-				'<span class="edit-link">',
+				'<span class="edit-link badge badge-dark">',
 				'</span>'
 			);
 			?>

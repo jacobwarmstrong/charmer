@@ -18,14 +18,49 @@ if ( $the_query->have_posts() ) {
         $the_query->the_post();
         $sign_product_name = get_the_title();
         $sign_product_link = get_permalink();
-        $sign_products[$sign_product_name] = $sign_product_link;
+        $sign_product_id = get_the_id();
+        $sign_product_slug = $post->post_name;
+        $sign_products[$sign_product_id] = ['link' => $sign_product_link, 'name' => $sign_product_name, 'slug' => $sign_product_slug];
     }
+} else {
+    // no posts found
+}
+$slugs = [];
+foreach($sign_products as $sign_product) {
+    array_push($slugs, $sign_product['slug']);
+}
+$implodeSlugs = implode(',', $slugs);
+/* Restore original Post Data */
+wp_reset_postdata();
+
+// Get all attachments of this selected sign product and selected tags
+$attachments = [];
+if( $tag != null ) {
+    $args = array('post_type' => 'attachment', 'post_status' => 'inherit', 'category_name' => $implodeSlugs, 'tag_id' => $tag );
+} else {
+    $args = array('post_type' => 'attachment', 'post_status' => 'inherit', 'category_name' => $implodeSlugs );
+}
+$the_query = new WP_Query( $args );
+// The Loop
+if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+        $the_query->the_post();
+        $img = wp_get_attachment_link( get_post()->id , [600,600], true, ['class' => 'img-fluid'] );
+        array_push($attachments, $img);
+        
+         $post_tags = get_the_tags();;
+        if ($post_tags) {
+            foreach($post_tags as $post_tag) {
+                $all_tags_arr[$post_tag->name] = $post_tag->term_id; 
+            }
+        }
+    }
+    $tags_array = array_unique($all_tags_arr); //REMOVES DUPLICATES
 } else {
     // no posts found
 }
 /* Restore original Post Data */
 wp_reset_postdata();
-
 ?>
 
 	<header class="entry-header container">
@@ -34,18 +69,27 @@ wp_reset_postdata();
             <a href="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h2>All Sign Products</h2></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <?php
-              foreach($sign_products as $sign_product_name => $sign_product_link) : ?>
-              <a class="dropdown-item" href="<?php echo $sign_product_link; ?>"><?php echo $sign_product_name; ?></a>
+              foreach($sign_products as $sign_product) : ?>
+              <a class="dropdown-item" href="<?php echo $sign_product['link']; ?>"><?php echo $sign_product['name']; ?></a>
               <?php endforeach; ?>
             </div>
         </div>
 	</header><!-- .entry-header -->
     
     
-	<div class="entry-content container">
-		<?php
-		the_content();
-
+	<div class="container">
+        <?php if( !empty($attachments) ) : ?>
+        <div class="charmer-gallery row">
+            <?php foreach($attachments as $img) : ?>
+                <div class="col-md-4">
+                    <?php echo $img; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <?php else: ?>
+        <div class=" alert alert-info">AKO currently doesn't have any pictures of this product to show off! We blame our web developer.</div>
+        <?php endif; ?>
+        <?php
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'charmer' ),
@@ -53,7 +97,7 @@ wp_reset_postdata();
 			)
 		);
 		?>
-	</div><!-- .entry-content -->
+	</div><!-- .container -->
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer container">
