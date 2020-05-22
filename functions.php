@@ -397,17 +397,20 @@ function get_gallery_images($category = null, $tag = null) {
 }
 
 function get_all_tags_for_posts($posts) {
+    $all_tags = [];
     foreach($posts as $post) {
         $post_tags = get_the_tags($post);
+
         if ($post_tags) {
             foreach($post_tags as $post_tag) {
-                array_push($all_tags, $post_tag);
+                $tag = $post_tag->term_id;
+                array_push($all_tags, $tag);
             }
-            $all_tags = array_unique($all_tags);
-            return $all_tags;
-        } else {
-            return false;
         }
     }
+    var_dump($all_tags);
+    $all_tags = array_unique($all_tags);
+    var_dump($all_tags);
+    return $all_tags;
 }
 

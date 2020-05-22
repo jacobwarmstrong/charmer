@@ -9,7 +9,8 @@
 
 $sign_products = get_sign_products();
 $images = get_gallery_images();
-
+$tags = get_all_tags_for_posts($images);
+var_dump($tags);
 if (is_page('work')) {
     $selected = 'All Sign Products';
 } else {
@@ -29,8 +30,23 @@ if (is_page('work')) {
           <?php endforeach; ?>
         </div>
     </div>
+    <?php if( !empty($tags) ) : ?>
+        <div class="my-2">
+            <span>Tags associated with <?php the_title(); ?>:</span>
+            <div class="d-flex flex-row flex-wrap my-2">
+                <?php foreach($tags as $tag_id) :
+                if($tag_id == $tag) {
+                    $tag_class = 'badge-selected';
+                } else {
+                    $tag_class = 'badge-primary';
+                }
+                ?>
+                <a href="?tag=<?php echo $tag_id; ?>" class="badge badge-pill my-1 <?php echo $tag_class; ?> p-2 mr-3"><?php echo get_tag($tag_id)->name; ?></a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php endif; ?>
 </header><!-- .entry-header -->
-
 
 <div class="container">
     <?php if( !empty($images) ) : ?>
