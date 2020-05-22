@@ -22,7 +22,10 @@ if ( isset($_GET['tag']) ) {
 }
 $sign_products = get_sign_products();
 $images = get_gallery_images($category, $tag);
-$tags = get_all_tags_for_posts($images);
+if(!empty($images)) {
+    $tags = get_all_tags_for_posts($images);
+}
+
 ?>
 
 <header class="entry-header container">

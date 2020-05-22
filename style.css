@@ -540,13 +540,13 @@ table {
     padding: 6rem 2rem 4rem 2rem;
 }
 
-.btn-primary {
+.btn-primary, .woocommerce button.button.alt, .woocommerce a.button.alt {
     color: #fff;
     background-color: #ff7700;
     border: none;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .woocommerce button.button.alt:hover, .woocommerce a.button.alt:hover {
     background-color: #ff9233;
 }
 
@@ -1061,9 +1061,12 @@ object {
     min-height: calc(100vh - 200px);
 }
 
-.dropdown-toggle a h2 {
-    display: inline-block;
+.dropdown-toggle {
     color: #404040;
+}
+
+.dropdown-toggle h2 {
+    display: inline-block;
 }
 
 .badge a {
@@ -1151,4 +1154,36 @@ a.badge:visited {
     font-size: 5rem;
     color: #fff;
     background-color: rgba(0,0,0,0.5);
+}
+
+.woocommerce button.button.alt {
+    background-color: #ff7700;
+}
+
+.stripe-card-group {
+    width: 100%;
+    display: block;
+}
+
+#stripe-card-element, #stripe-exp-element, #stripe-cvc-element {
+    display: block;
+    width: 100%;
+    height: -webkit-calc(1.5em + .75rem + 2px);
+    height: -moz-calc(1.5em + .75rem + 2px);
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    -o-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -moz-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }

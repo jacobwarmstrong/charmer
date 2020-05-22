@@ -376,14 +376,18 @@ function get_sign_products() {
 }
 
 function get_gallery_images($category = null, $tag = null) {
-    $sign_products = get_sign_products();
-    $slugs = [];
-    foreach($sign_products as $sign_product) {
-        array_push($slugs, $sign_product->post_name);
+    if (isset($category)) {
+        $categoryList = $category;
+    } else {
+        $slugs = [];
+        $sign_products = get_sign_products();
+        foreach($sign_products as $sign_product) {
+            array_push($slugs, $sign_product->post_name);
+        }
+        $categoryList = implode(',', $slugs);
     }
-    $implodeSlugs = implode(',', $slugs);
     //create args based on tag input or not
-    $args = array('post_type' => 'attachment', 'post_status' => 'inherit', 'category_name' => $implodeSlugs );
+    $args = array('post_type' => 'attachment', 'post_status' => 'inherit', 'category_name' => $categoryList );
     //if tag is added, add to query arguments
     if( $tag != null ) {
         $args['tag_id'] = $tag;
@@ -410,5 +414,20 @@ function get_all_tags_for_posts($posts) {
     }
     $all_tags = array_unique($all_tags);
     return $all_tags;
+}
+
+add_action( 'after_setup_theme', 'charmer_woocommerce_support' );
+if ( ! function_exists( 'charmer_woocommerce_support' ) ) {
+	/**
+	 * Declares WooCommerce theme support.
+	 */
+	function charmer_woocommerce_support() {
+		add_theme_support( 'woocommerce' );
+
+		// Add New Woocommerce 3.0.0 Product Gallery support.
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-slider' );
+	}
 }
 

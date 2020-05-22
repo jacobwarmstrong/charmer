@@ -18,9 +18,7 @@ $category = get_the_category();
 $category = $category[0];
 $tags = get_the_tags();
 
-$images = get_gallery_images($category, $tag);
-
-var_dump(count($images)) ;
+$images = get_gallery_images($category->slug, $tag);
 
 $current_img['id'] = $id;
 $current_img['src'] = wp_get_attachment_image_src($id, 'original')[0];
