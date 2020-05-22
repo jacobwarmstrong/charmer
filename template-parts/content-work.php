@@ -9,16 +9,23 @@
 
 $sign_products = get_sign_products();
 $images = get_gallery_images();
+
+if (is_page('work')) {
+    $selected = 'All Sign Products';
+} else {
+    $selected = get_the_title();
+}
 ?>
 
 <header class="entry-header container">
     <span>Sign Product</span>
     <div class="dropdown show mr-5">
-        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h2>All Sign Products</h2></a>
+        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h2><?php echo $selected; ?></h2></a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/work">All Sign Products</a>
           <?php
           foreach($sign_products as $sign_product) : ?>
-          <a class="dropdown-item" href="<?php echo $sign_product->guid; ?>"><?php echo $sign_product->post_title; ?></a>
+          <a class="dropdown-item" href="<?php echo get_permalink($sign_product); ?>"><?php echo $sign_product->post_title; ?></a>
           <?php endforeach; ?>
         </div>
     </div>
