@@ -361,3 +361,53 @@ function charmer_get_attachment_link($post_id, $tag = null) {
     //output img html to frontend
     echo $html;
 }
+
+// Get array of all sign products
+function get_sign_products() {
+    $args = [
+        'numberposts' => -1,
+        'post_type' => 'sign-products',
+        'orderby' => 'title',
+        'order' => 'ASC'
+    ];
+    
+    $sign_products = get_posts($args);
+    return $sign_products;
+}
+
+function get_gallery_images($category = null, $tag = null) {
+    $sign_products = get_sign_products();
+    $slugs = [];
+    foreach($sign_products as $sign_product) {
+        array_push($slugs, $sign_product->post_name);
+    }
+    $implodeSlugs = implode(',', $slugs);
+    //create args based on tag input or not
+    $args = array('post_type' => 'attachment', 'post_status' => 'inherit', 'category_name' => $implodeSlugs );
+    //if tag is added, add to query arguments
+    if( $tag != null ) {
+        $args['tag_id'] = $tag;
+    }
+    $images = get_posts($args); 
+    if ( $images ) {
+        return $images;
+    } else {
+        // no posts found
+    }
+}
+
+function get_all_tags_for_posts($posts) {
+    foreach($posts as $post) {
+        $post_tags = get_the_tags($post);
+        if ($post_tags) {
+            foreach($post_tags as $post_tag) {
+                array_push($all_tags, $post_tag);
+            }
+            $all_tags = array_unique($all_tags);
+            return $all_tags;
+        } else {
+            return false;
+        }
+    }
+}
+
