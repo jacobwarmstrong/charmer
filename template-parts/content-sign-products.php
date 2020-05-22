@@ -7,15 +7,24 @@
  * @package charmer
  */
 
-$sign_products = get_sign_products();
-$images = get_gallery_images();
-$tags = get_all_tags_for_posts($images);
+
 var_dump($tags);
 if (is_page('work')) {
+    $category = null;
     $selected = 'All Sign Products';
 } else {
+    $category = $post->post_name;
     $selected = get_the_title();
 }
+
+if ( isset($_GET['tag']) ) {
+    $tag = $_GET['tag'];
+} else {
+    $tag = null;
+}
+$sign_products = get_sign_products();
+$images = get_gallery_images($category, $tag);
+$tags = get_all_tags_for_posts($images);
 ?>
 
 <header class="entry-header container">

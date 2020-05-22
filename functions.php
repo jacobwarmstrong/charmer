@@ -349,7 +349,7 @@ function charmer_get_attachment_link($post_id, $tag = null) {
     
     //if tag is in arg, then add it to the uri
     if($tag) {
-        $img['uri'] .= 'tag=' . $tag;
+        $img['uri'] .= '?tag=' . $tag;
     }
     
     //assemble img html
