@@ -339,3 +339,25 @@ function create_industry_nonhierarchical_taxonomy() {
     'rewrite' => array( 'slug' => 'industry' ),
   ));
 }
+
+//charmer specific img html output for gallery
+function charmer_get_attachment_link($post_id, $tag = null) {
+    //use wordpress functions to get our img info
+    $img['src'] = wp_get_attachment_image_src($post_id, [600,450])[0];
+    $img['alt'] = get_post_meta($post_id, '_wp_attachment_image_alt', true);
+    $img['uri'] = get_permalink($post_id);
+    
+    //if tag is in arg, then add it to the uri
+    if($tag) {
+        $img['uri'] .= 'tag=' . $tag;
+    }
+    
+    //assemble img html
+    $html = '<a href="' . $img['uri'] . '">';
+    $html .= '<img src="' . $img['src'] . '" ';
+    $html .= '"alt="' . $img['alt'] . '">';
+    $html .= '</a>';
+    
+    //output img html to frontend
+    echo $html;
+}

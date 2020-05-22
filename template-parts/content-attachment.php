@@ -11,8 +11,8 @@ $category = get_the_category();
 $category = $category[0];
 $tags = get_the_tags();
 
-$img_src = wp_get_attachment_image_src($id, 'original')[0];
-$img_alt = get_post_meta($id, '_wp_attachment_image_alt', true);
+$current_img['src'] = wp_get_attachment_image_src($id, 'original')[0];
+$current_img['alt'] = get_post_meta($id, '_wp_attachment_image_alt', true);
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-screen'); ?>>
@@ -50,7 +50,7 @@ $img_alt = get_post_meta($id, '_wp_attachment_image_alt', true);
                 </div>
             </div>
         </header><!-- .entry-header -->
-        <img src="<?php echo $img_src; ?>" alt="<?php echo $img_alt; ?>">
+        <img src="<?php echo $current_img['src']; ?>" alt="<?php echo $img['alt']; ?>">
         
     </div>
 </div><!-- #post-<?php the_ID(); ?> -->

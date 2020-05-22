@@ -7,7 +7,6 @@
  * @package charmer
  */
 
-
 // Get list of sign products
 $sign_products = [];
 $the_query = new WP_Query( array('post_type' => 'sign-products') );
@@ -45,8 +44,9 @@ $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts() ) {
         $the_query->the_post();
-        $img = wp_get_attachment_link( get_post()->id , [600,600], true, ['class' => 'img-fluid'] );
-        array_push($attachments, $img);
+        
+        $image_id = $post->ID;
+        array_push($attachments, $image_id);
         
          $post_tags = get_the_tags();;
         if ($post_tags) {
@@ -80,9 +80,10 @@ wp_reset_postdata();
 	<div class="container">
         <?php if( !empty($attachments) ) : ?>
         <div class="charmer-gallery row">
-            <?php foreach($attachments as $img) : ?>
+            <?php var_dump($attachments); ?>
+            <?php foreach($attachments as $image_id) : ?>
                 <div class="col-md-4">
-                    <?php echo $img; ?>
+                    <?php charmer_get_attachment_link($image_id, $tag); ?>
                 </div>
             <?php endforeach; ?>
         </div>
