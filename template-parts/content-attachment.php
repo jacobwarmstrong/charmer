@@ -6,6 +6,13 @@
  *
  * @package charmer
  */
+
+if ( isset($_GET['tag']) ) {
+    $tag = $_GET['tag'];
+} else {
+    $tag = null;
+}
+
 $id = get_the_id();
 $category = get_the_category();
 $category = $category[0];
@@ -17,7 +24,7 @@ $current_img['alt'] = get_post_meta($id, '_wp_attachment_image_alt', true);
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-screen'); ?>>
     <div class="container-image">
-    <a href="/sign-products/<?php echo $category->slug; ?>"> 
+    <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $tag; ?>"> 
         <button type="button" class="close img-close p-4" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
