@@ -7,8 +7,6 @@
  * @package charmer
  */
 
-
-var_dump($tags);
 if (is_page('work')) {
     $category = null;
     $selected = 'All Sign Products';
@@ -53,6 +51,9 @@ $tags = get_all_tags_for_posts($images);
                 <a href="?tag=<?php echo $tag_id; ?>" class="badge badge-pill my-1 <?php echo $tag_class; ?> p-2 mr-3"><?php echo get_tag($tag_id)->name; ?></a>
                 <?php endforeach; ?>
             </div>
+            <?php if ($tag) : ?>
+                <a href="?reset=true" class="btn btn-outline-primary my-2">Reset Tag Filter</a>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 </header><!-- .entry-header -->

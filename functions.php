@@ -408,9 +408,7 @@ function get_all_tags_for_posts($posts) {
             }
         }
     }
-    var_dump($all_tags);
     $all_tags = array_unique($all_tags);
-    var_dump($all_tags);
     return $all_tags;
 }
 
