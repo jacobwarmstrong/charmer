@@ -30,11 +30,14 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
+        
+        <?php
+            if ( !is_page(['my-account', 'cart', 'checkout']) ) {
+                get_sidebar();
+            }
+        ?>
 
 	</main><!-- #main -->
 
 <?php
-if ( !is_page(['my-account', 'cart', 'checkout']) ) {
-    get_sidebar();
-}
 get_footer();
