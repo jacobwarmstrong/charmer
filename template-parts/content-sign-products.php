@@ -42,7 +42,7 @@ if(!empty($images)) {
     </div>
     <?php if( !empty($tags) ) : ?>
         <div class="my-2">
-            <span>Tags associated with <?php the_title(); ?>:</span>
+            <span>Tags associated with <?php echo $selected; ?>:</span>
             <div class="d-flex flex-row flex-wrap my-2">
                 <?php foreach($tags as $tag_id) :
                 if($tag_id == $tag) {
