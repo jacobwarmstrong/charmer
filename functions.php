@@ -387,7 +387,7 @@ function get_gallery_images($category = null, $tag = null) {
         $categoryList = implode(',', $slugs);
     }
     //create args based on tag input or not
-    $args = array('post_type' => 'attachment', 'post_status' => 'inherit', 'category_name' => $categoryList );
+    $args = array('post_type' => 'attachment', 'post_status' => 'inherit', 'category_name' => $categoryList, 'numberposts' => -1 );
     //if tag is added, add to query arguments
     if( $tag != null ) {
         $args['tag_id'] = $tag;

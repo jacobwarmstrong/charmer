@@ -44,8 +44,6 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php charmer_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+    
+        <a href="<?php echo get_edit_post_link(); ?>">Edit</a>
 </article><!-- #post-<?php the_ID(); ?> -->
