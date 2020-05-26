@@ -28,24 +28,19 @@
                 </div>
                 <div class="col-md-6">
                 <?php
-                // The Query
-                $the_query = new WP_Query( array('post_type' => 'sign-products') );
+                // sign products
+                $sign_products = get_sign_products();
 
                 // The Loop
-                if ( $the_query->have_posts() ) {
-                    echo '<ul class="sign-products-list list-unstyled d-flex flex-column flex-wrap">';
-                    while ( $the_query->have_posts() ) {
-                        $the_query->the_post();
-                        echo '<li class="py-2">' . get_the_title() . '</li>';
-                    }
-                    echo '</ul>';
-                } else {
-                    // no posts found
-                }
-                /* Restore original Post Data */
-                wp_reset_postdata();
-                ?>
-                </ul>
+                if ( !empty( $sign_products ) ) : ?>
+                    <ul class="sign-products-list list-unstyled d-flex flex-column flex-wrap">
+                    <?php foreach($sign_products as $sign_product) : ?>
+                        <li class="py-2"><a href="<?php echo get_permalink($sign_product); ?>"><?php echo $sign_product->post_title; ?></a></li>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php else : ?>
+                    <p>No sign products found! Contact the web developer!</p>
+                <?php endif; ?>
                 </div>
             </div>
         </div>
