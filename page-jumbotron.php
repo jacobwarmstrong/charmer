@@ -45,8 +45,10 @@ get_header();
                 get_template_part( 'template-parts/content', 'services');
             } elseif(get_the_title() == 'Work') {
                 get_template_part( 'template-parts/content', 'sign-products');
+            } elseif(get_the_title() == 'Contact') {
+                get_template_part( 'template-parts/content', 'contact');
             } else {
-                get_template_part( 'template-parts/content', 'page' );
+                get_template_part( 'template-parts/content', 'jumbotron-page' );
             }
 
 
@@ -61,5 +63,8 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+if(!is_page('Contact')) {
+    get_sidebar();
+}
+
 get_footer();

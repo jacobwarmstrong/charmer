@@ -1209,3 +1209,7 @@ footer a:hover {
 footer a:focus {
     color: #ddd;
 }
+
+.wpgmza_map {
+    margin-bottom: 1em;
+}

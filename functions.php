@@ -53,6 +53,8 @@ if ( ! function_exists( 'charmer_setup' ) ) :
 				'menu-1' => esc_html__( 'Primary', 'charmer' ),
 			)
 		);
+        //sign-products image gallery size
+        add_image_size( 'sign-gallery', 600, 460, true);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -343,7 +345,7 @@ function create_industry_nonhierarchical_taxonomy() {
 //charmer specific img html output for gallery
 function charmer_get_attachment_link($post_id, $tag = null) {
     //use wordpress functions to get our img info
-    $img['src'] = wp_get_attachment_image_src($post_id, [600,450])[0];
+    $img['src'] = wp_get_attachment_image_src($post_id, 'sign-gallery')[0];
     $img['alt'] = get_post_meta($post_id, '_wp_attachment_image_alt', true);
     $img['uri'] = get_permalink($post_id);
     
@@ -430,4 +432,28 @@ if ( ! function_exists( 'charmer_woocommerce_support' ) ) {
 		add_theme_support( 'wc-product-gallery-slider' );
 	}
 }
+
+function contact_page_form_widget() {
+ 
+    register_sidebar( array(
+        'name'          => 'Contact Form Widget',
+        'id'            => 'contact-form-widget',
+        'before_widget' => '<div class="contact-widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<!---',
+        'after_title'   => '--->',
+    ) );
+ 
+}
+add_action( 'widgets_init', 'contact_page_form_widget' );
+
+/*add_filter('widget_title','remove_widget_title');
+function remove_widget_title($title)
+{
+
+    return null;
+}
+*/
+
+
 
