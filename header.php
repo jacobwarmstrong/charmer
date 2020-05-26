@@ -93,7 +93,9 @@ if ( is_page_template('page-jumbotron.php') ) {
               <a href="/my-account" class="mr-5">Login</a>
               <?php endif;
              endif; ?>
+            <?php if ( !is_page('Contact') && !is_page('Contact - Augusta') ) : ?>
             <a class="btn <?php echo $contact_classes; ?>" href="<?php echo get_page_link(136); ?>" role="button">Contact</a>
+            <?php endif; ?>
           </div>
         </div>
         </nav> 

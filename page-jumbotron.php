@@ -23,8 +23,8 @@ get_header();
                  <div class="col-md-6">
                     <h1><?php echo the_field('cta_headline'); ?></h1>
                     <p class="lead"><?php echo the_field('cta_description'); ?></p>
-                     <?php if ( get_field('cta_button_label') ) : ?>
-                     <a class="btn btn-primary btn-lg" href="#" role="button"><?php echo the_field('cta_button_label'); ?></a>
+                     <?php if ( get_field('cta_button_label') && get_field('cta_button_link') ) : ?>
+                     <a class="btn btn-primary btn-lg" href="<?php the_field('cta_button_link'); ?>" role="button"><?php echo the_field('cta_button_label'); ?></a>
                      <?php endif; ?>
                  </div>
                  <div class="col-md-6 my-5">

@@ -720,16 +720,26 @@ a:active {
 	text-decoration: none;
 }
 
-.nav-link:visited {
-    color: #fff;
-}
-
 .dark-navy {
     color: rgba(43,47,102,.8);
 }
 
 .dark-navy:visited {
     color: rgba(43,47,102,.08); 
+}
+
+.btn-outline-light:hover {
+    color: #0f4168;
+}
+
+.btn-outline-dark {
+    color: #2695ff;
+    border-color: #2695ff;
+}
+
+.btn-outline-dark:hover {
+    background-color: #2695ff;
+    border-color: #2695ff;
 }
 
 /* Small menu. */
