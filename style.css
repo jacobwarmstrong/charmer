@@ -1193,5 +1193,9 @@ footer a {
 }
 
 footer a:hover {
-    color: #eee;
+    color: #ddd;
+}
+
+footer a:focus {
+    color: #ddd;
 }
