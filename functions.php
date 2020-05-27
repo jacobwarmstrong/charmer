@@ -433,6 +433,7 @@ if ( ! function_exists( 'charmer_woocommerce_support' ) ) {
 	}
 }
 
+add_action( 'widgets_init', 'contact_page_form_widget' );
 function contact_page_form_widget() {
  
     register_sidebar( array(
@@ -445,15 +446,38 @@ function contact_page_form_widget() {
     ) );
  
 }
-add_action( 'widgets_init', 'contact_page_form_widget' );
 
-/*add_filter('widget_title','remove_widget_title');
-function remove_widget_title($title)
-{
 
-    return null;
+add_action('wp_head', 'google_analytics_head', 20);
+function google_analytics_head() {
+    ?>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',<?php echo GOOGLE_TAG_MANAGER_TRACKING_KEY; ?>);</script>
+    <!-- End Google Tag Manager -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo GOOGLE_ANALYTICS_TRACKING_KEY; ?>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', <?php echo GOOGLE_ANALYTICS_TRACKING_KEY; ?>);
+    </script>
+    <?php
 }
-*/
+
+add_action('wp_body_open', 'google_tag_manager_body', 20);
+function google_tag_manager_body() { ?>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo GOOGLE_TAG_MANAGER_TRACKING_KEY; ?>"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <?php
+}
 
 
 
