@@ -1213,3 +1213,15 @@ footer a:focus {
 .wpgmza_map {
     margin-bottom: 1em;
 }
+
+@media screen and (max-width: 37.5em) {
+    .alignright {
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .alignright img {
+        width: 100%;
+    }
+}
