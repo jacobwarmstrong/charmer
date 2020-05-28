@@ -30,7 +30,7 @@ if(!empty($images)) {
 
 <header class="entry-header container">
     <span>Sign Product</span>
-    <div class="dropdown show mr-5">
+    <div class="dropdown show mr-5 my-3">
         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h2><?php echo $selected; ?></h2></a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="/work">All Sign Products</a>
@@ -40,7 +40,7 @@ if(!empty($images)) {
           <?php endforeach; ?>
         </div>
     </div>
-    <?php if( !empty($tags) ) : ?>
+    <?php if( !empty($tags) && $selected != 'All Sign Products' ) : ?>
         <div class="my-2">
             <span>Tags associated with <?php echo $selected; ?>:</span>
             <div class="d-flex flex-row flex-wrap my-2">
@@ -73,36 +73,9 @@ if(!empty($images)) {
     <?php else: ?>
     <div class=" alert alert-info">AKO currently doesn't have any pictures of this product to show off! We blame our web developer.</div>
     <?php endif; ?>
-    <?php
-    wp_link_pages(
-        array(
-            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'charmer' ),
-            'after'  => '</div>',
-        )
-    );
-    ?>
 </div><!-- .container -->
 
 <?php if ( get_edit_post_link() ) : ?>
-    <footer class="entry-footer container">
-        <?php
-        edit_post_link(
-            sprintf(
-                wp_kses(
-                    /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( 'Edit <span class="screen-reader-text">%s</span>', 'charmer' ),
-                    array(
-                        'span' => array(
-                            'class' => array(),
-                        ),
-                    )
-                ),
-                wp_kses_post( get_the_title() )
-            ),
-            '<span class="edit-link">',
-            '</span>'
-        );
-        ?>
-    </footer><!-- .entry-footer -->
+
 <?php endif; ?>
 
