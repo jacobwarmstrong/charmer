@@ -45,5 +45,5 @@
 		?>
 	</div><!-- .entry-content -->
     
-        <a href="<?php echo get_edit_post_link(); ?>">Edit</a>
+        <!--- edit link here if you want?? --->
 </article><!-- #post-<?php the_ID(); ?> -->
