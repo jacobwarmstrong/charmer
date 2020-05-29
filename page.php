@@ -13,6 +13,9 @@
  */
 
 get_header();
+
+get_template_part( 'global-templates/email-sent-modal');
+
 ?>
 
 	<main id="primary" class="site-main">

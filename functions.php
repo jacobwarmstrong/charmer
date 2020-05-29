@@ -176,6 +176,10 @@ function charmer_scripts() {
     wp_enqueue_script( 'bootstrap-js-popper', "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js", array(), _S_VERSION, true );
         
     wp_enqueue_script( 'bootstrap-js', "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js", array(), _S_VERSION, true );
+
+    wp_enqueue_script( 'the-modal', "/js/the-modal.js", array(), _S_VERSION, true );
+    
+    
 }
 add_action( 'wp_enqueue_scripts', 'charmer_scripts' );
 
@@ -478,6 +482,7 @@ function google_tag_manager_body() { ?>
     <!-- End Google Tag Manager (noscript) -->
     <?php
 }
+
 
 
 

@@ -66,6 +66,11 @@
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
+<script>
+        jQuery(window).on('load',function(){
+            jQuery('#mailSentModal').modal('show');
+        });
+</script>
 
 <?php wp_footer(); ?>
 
