@@ -151,7 +151,10 @@ add_action( 'widgets_init', 'charmer_widgets_init' );
  */
 function charmer_scripts() {
     wp_enqueue_style( 'bootstrap-style', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" );
-    wp_enqueue_style( 'google-fonts-style', "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=PT+Serif+Caption&fmaily=Source+Sans+Pro:wght@900&display=swap" );
+    
+    wp_enqueue_style( 'google-fonts-style', "https://fonts.googleapis.com/css2?family=PT+Serif+Caption" );
+    
+    wp_enqueue_style( 'google-fonts-style-2', "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" );
     wp_enqueue_style( 'charmer-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'charmer-style', 'rtl', 'replace' );
 
@@ -176,8 +179,6 @@ function charmer_scripts() {
     wp_enqueue_script( 'bootstrap-js-popper', "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js", array(), _S_VERSION, true );
         
     wp_enqueue_script( 'bootstrap-js', "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js", array(), _S_VERSION, true );
-
-    wp_enqueue_script( 'the-modal', "/js/the-modal.js", array(), _S_VERSION, true );
     
     
 }
@@ -460,7 +461,7 @@ function google_analytics_head() {
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',<?php echo GOOGLE_TAG_MANAGER_TRACKING_KEY; ?>);</script>
+    })(window,document,'script','dataLayer','<?php echo GOOGLE_TAG_MANAGER_TRACKING_KEY; ?>');</script>
     <!-- End Google Tag Manager -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo GOOGLE_ANALYTICS_TRACKING_KEY; ?>"></script>
@@ -469,7 +470,7 @@ function google_analytics_head() {
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', <?php echo GOOGLE_ANALYTICS_TRACKING_KEY; ?>);
+      gtag('config', '<?php echo GOOGLE_ANALYTICS_TRACKING_KEY; ?>');
     </script>
     <?php
 }
