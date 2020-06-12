@@ -33,7 +33,7 @@
     </div>
 	<header class="entry-header container">
         <h2>Sign Products</h2>
-        <p>There exists such a diversity of sign products and each business and industry has its own needs. That’s why why encourage you to reach out to one of our sign experts to help you find what will be most effective for your business.</p>
+        <p>There exists such a diversity of sign products and each business and industry has its own needs. That’s why we encourage you to reach out to one of our sign experts to help you find what will be most effective for your business.</p>
 	</header><!-- .entry-header -->
     <div class="container py-5 d-flex flex-wrap">
         <?php
