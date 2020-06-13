@@ -166,7 +166,7 @@ function charmer_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
     
-    if (  ! get_post_type() == 'attachment' ) {
+    if (  get_post_type() != 'attachment' ) {
         wp_enqueue_script( 'charmer-add-class-to-nav-links', get_template_directory_uri() . '/js/add-class-to-nav-links.js', array(), _S_VERSION, true );
     }
     

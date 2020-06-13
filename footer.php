@@ -70,6 +70,10 @@
         jQuery(window).on('load',function(){
             jQuery('#mailSentModal').modal('show');
         });
+    
+        jQuery(window).on('load', function () {
+            jQuery('#popUpModal').modal('show')
+        })
 </script>
 
 <?php wp_footer(); ?>
