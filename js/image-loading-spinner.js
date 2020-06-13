@@ -6,9 +6,13 @@
 
 var image = document.getElementById('image');
 var spinner = document.getElementById('spinner');
+var containerImage = document.getElementById('container-image');
+
+containerImage.style.display = 'none';
 
 function loaded() {
     spinner.style.display = 'none';
+    containerImage.style.display = 'block';
 }
 
 if (image.complete) {
@@ -16,6 +20,6 @@ if (image.complete) {
 } else {
   image.addEventListener('load', loaded)
   image.addEventListener('error', function() {
-      alert('error')
+      
   })
 }

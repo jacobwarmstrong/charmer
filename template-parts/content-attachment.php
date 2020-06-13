@@ -52,10 +52,10 @@ if($tag) {
 ?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-screen'); ?>>
-    <div class="container-image">
+    <div id="container-image" class="container-image">
         <div id="spinner" class="spinner-border text-light" role="status">
-  <span class="sr-only">Loading...</span>
-</div>
+          <span class="sr-only">Loading...</span>
+        </div>
     <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $tag; ?>"> 
         <button type="button" class="close img-close p-4" aria-label="Close">
           <span aria-hidden="true">&times;</span>
