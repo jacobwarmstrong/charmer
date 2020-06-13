@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying images full-size
+ * Template part for displaying images full-screen
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -53,6 +53,9 @@ if($tag) {
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-screen'); ?>>
     <div class="container-image">
+        <div id="spinner" class="spinner-border text-light" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
     <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $tag; ?>"> 
         <button type="button" class="close img-close p-4" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -90,7 +93,7 @@ if($tag) {
                 </div>
             </div>
         </header><!-- .entry-header -->
-        <img src="<?php echo $current_img['src']; ?>" alt="<?php echo $img['alt']; ?>">
+        <img id="image" src="<?php echo $current_img['src']; ?>" alt="<?php echo $img['alt']; ?>">
         
     </div>
 </div><!-- #post-<?php the_ID(); ?> -->

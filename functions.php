@@ -166,10 +166,16 @@ function charmer_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
     
-    wp_enqueue_script( 'charmer-add-class-to-nav-links', get_template_directory_uri() . '/js/add-class-to-nav-links.js', array(), _S_VERSION, true );
+    if (  ! get_post_type() == 'attachment' ) {
+        wp_enqueue_script( 'charmer-add-class-to-nav-links', get_template_directory_uri() . '/js/add-class-to-nav-links.js', array(), _S_VERSION, true );
+    }
     
     if ( is_page_template( 'page-jumbotron.php' ) ) {
         wp_enqueue_script( 'charmer-navbar', get_template_directory_uri() . '/js/navbar.js', array(), _S_VERSION, true );
+    }
+    
+    if ( get_post_type() == 'attachment' ) {
+        wp_enqueue_script( 'charmer-image-spinner', get_template_directory_uri() . '/js/image-loading-spinner.js', array(), _S_VERSION, true );
     }
     
     wp_enqueue_script( 'bootstrap-js-jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), _S_VERSION, true  );

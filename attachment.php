@@ -26,3 +26,10 @@ get_header( 'attachment' );
 		?>
 
 	</main><!-- #main -->
+</div><!-- #page -->
+
+<?php wp_footer(); ?>
+
+
+</body>
+</html>
