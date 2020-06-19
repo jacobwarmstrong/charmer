@@ -93,7 +93,7 @@ if($tag) {
                 </div>
             </div>
         </header><!-- .entry-header -->
-        <img id="image" src="<?php echo $current_img['src']; ?>" alt="<?php echo $img['alt']; ?>">
+        <img id="image" src="<?php echo $current_img['src']; ?>" alt="<?php echo $current_img['alt']; ?>">
         
     </div>
 </div><!-- #post-<?php the_ID(); ?> -->
