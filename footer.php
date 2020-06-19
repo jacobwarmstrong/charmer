@@ -50,18 +50,16 @@
                 <a class="p-2" href="https://www.instagram.com/akosigns/?hl=en" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(970)); ?></a>
                 <a class="p-2" href="https://www.yelp.com/biz/ako-signs-athens" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(978)); ?></a>
             </div>
-            <div class="">
-                <a class="" href="<?php echo esc_url( __( 'https://wordpress.org/', 'charmer' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'charmer' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'charmer' ), 'charmer', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
+            <div class="my-5">
+                <?php wp_nav_menu(
+				array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'footer-menu',
+                    'menu_class'     => 'main-navigation navbar-nav',
+                    'container_class' => 'mr-auto'
+				)
+			);
+                ?>
             </div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
