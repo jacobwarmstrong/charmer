@@ -47,10 +47,11 @@ if ( ! function_exists( 'charmer_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'charmer' ),
+                'menu-2' => esc_html__( 'Footer', 'charmer' )
 			)
 		);
         //sign-products image gallery size
@@ -489,6 +490,95 @@ function google_tag_manager_body() { ?>
     <!-- End Google Tag Manager (noscript) -->
     <?php
 }
+
+//checks if tag is in GET and either returns the tag value or returns false;
+function the_selected_tag() {
+    global $_GET;
+    if ( isset($_GET['tag']) ) {
+        $tag = $_GET['tag'];
+        return $tag;
+    } else {
+        $tag = null;
+        return false;
+    }
+}
+
+
+//returns the current selected image info in our image lightbox
+function get_current_img($id) {
+    $current_img = [];
+    $current_img['src'] = wp_get_attachment_image_src($id, 'original')[0];
+    $current_img['alt'] = get_post_meta($id, '_wp_attachment_image_alt', true);
+    return $current_img;
+}
+
+function get_order_of_image($images, $id) {
+    for($i = 0; $i < count($images); $i++) {
+        if($images[$i]->ID == $id) {
+            $current_img_order = $i;
+            return $current_img_order;
+        }
+    }
+}
+
+function append_tag_to_query($link, $tag) {
+    $query = '/?tag=' . $tag;
+    $newLink = $link . $query;
+    return $newLink;
+}
+
+function the_next_image($images, $current_order, $tag = null) {
+    if( $current_order < count($images) - 1) {
+        $nextImg['image'] = $images[($current_order + 1)];
+        $link = get_permalink($nextImg['image']);
+        if ($tag) {
+            $link .= "?tag=" . $tag;
+        }
+        $nextImg['link'] = $link;
+    } else {
+        $nextImg = null;
+    }
+    return $nextImg;
+}
+
+function the_previous_image($images, $current_order, $tag = null) {
+        if( $current_order > 0 ) {
+            $previousImg['image'] = $images[($current_order - 1)];
+            $link = get_permalink($previousImg['image']);
+            if ($tag) {
+                $link .= "?tag=" . $tag;
+            }
+            $previousImg['link'] = $link;
+        } else {
+            $previousImg = null;
+        }
+    return $previousImg;
+}
+
+
+function setup_lightbox_images($id) {
+        $category = get_the_category()[0];
+        $the_selected_tag = the_selected_tag();
+        $images = get_gallery_images( $category->slug, the_selected_tag() );
+        $current_image = get_current_img($id);
+        $current_order = get_order_of_image($images, $id);
+        $next_image = the_next_image($images, $current_order, $the_selected_tag);
+        $previous_image = the_previous_image($images, $current_order, $the_selected_tag);
+        $data = ['id' => $id,
+              'category' => $category,
+              'tags' => get_the_tags(),
+              'the_selected_tag' => $the_selected_tag,
+              'current_image' => $current_image,
+              'next_image' => $next_image,
+              'previous_image' => $previous_image
+             ];
+        return $data;
+}
+add_filter('filter_images', 'setup_lightbox_images');
+
+
+
+
 
 
 

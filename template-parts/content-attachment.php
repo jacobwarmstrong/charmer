@@ -1,80 +1,58 @@
 <?php
 /**
- * Template part for displaying images full-screen
+ * Template part for displaying images as a full-screen 'lightbox'
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package charmer
  */
 
-if ( isset($_GET['tag']) ) {
-    $tag = $_GET['tag'];
-} else {
-    $tag = null;
-}
+//setup variables for image navigation and rendering
+//functions are found in functions.php
+$data = apply_filters('filter_images', get_the_id() );
+$id = $data['id'];
+$category = $data['category'];
+$tags = $data['tags'];
+$selected_tag = $data['the_selected_tag'];
+$nextImg = $data['next_image'];
+$currentImg = $data['current_image'];
+$previousImg = $data['previous_image'];
+?> 
 
-$id = get_the_id();
-$category = get_the_category();
-$category = $category[0];
-$tags = get_the_tags();
-
-$images = get_gallery_images($category->slug, $tag);
-
-$current_img['id'] = $id;
-$current_img['src'] = wp_get_attachment_image_src($id, 'original')[0];
-$current_img['alt'] = get_post_meta($id, '_wp_attachment_image_alt', true);
-
-for($i = 0; $i < count($images); $i++) {
-    if($images[$i]->ID == $id) {
-        $current_img['order'] = $i;
-    }
-}
-
-if(isset($current_img) && $current_img['order'] < count($images) - 1) {
-    $nextImg = $images[($current_img['order'] + 1)];
-    $next_link = get_permalink($nextImg);
-} else {
-    $nextImg = null;
-}
-if(isset($current_img) && $current_img['order'] > 0) {
-    $previousImg = $images[($current_img['order'] - 1)];
-    $prev_link = get_permalink($previousImg);
-} else {
-    $previousImg = null;
-}
-
-if($tag) {
-    $query = '/?tag=' . $tag;
-    $prev_link = $prev_link . $query;
-    $next_link = $next_link . $query;
-}
-
-?>
 
 <div id="post-<?php the_ID(); ?>" <?php post_class('full-screen'); ?>>
     <div id="container-image" class="container-image">
+        <!----Loading Spinner------>
         <div id="spinner" class="spinner-border text-light" role="status">
           <span class="sr-only">Loading...</span>
         </div>
-    <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $tag; ?>"> 
-        <button type="button" class="close img-close p-4" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-    </a>
-    <?php if ($previousImg) : ?>
-    <a href="<?php echo $prev_link; ?>">
-        <div class="img-left-nav p-4">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-left.png">
-        </div>
-    </a>
-    <?php endif; ?>
-    <?php if ($nextImg) : ?>
-    <a href="<?php echo $next_link; ?>">
-        <div class="img-right-nav p-4">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-right.png">
-        </div>
-    </a>
-    <?php endif; ?>
+        <!----/Loading Spinner----->
+        <!----Close Button------>
+        <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $selected_tag; ?>"> 
+            <button type="button" class="close img-close p-4" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </a>
+        <!----/Close Button------>
+        <!----Previous Image Nav Button---->
+        <?php if ($previousImg) : ?>
+        <a href="<?php echo $previousImg['link']; ?>">
+            <div class="img-left-nav p-4">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-left.png">
+            </div>
+        </a>
+        <?php endif; ?>
+        <!-----/Previous Image Nav Button--->
+        <!----Next Image Nav Button---->
+        <?php if ($nextImg) : ?>
+        <a href="<?php echo $nextImg['link']; ?>">
+            <div class="img-right-nav p-4">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-right.png">
+            </div>
+        </a>
+        <?php endif; ?>
+        <!----/Next Image Nav Button---->
+        <!----Current Image Info---->
         <header class="entry-header header-image">
             <div class="container">
                 <?php
@@ -93,7 +71,9 @@ if($tag) {
                 </div>
             </div>
         </header><!-- .entry-header -->
-        <img id="image" src="<?php echo $current_img['src']; ?>" alt="<?php echo $current_img['alt']; ?>">
-        
+        <!----/Current Image Info---->
+        <!----Current Image---->
+        <img id="image" src="<?php echo $currentImg['src']; ?>" alt="<?php echo $currentImg['alt']; ?>">
+        <!----/Current Image---->
     </div>
 </div><!-- #post-<?php the_ID(); ?> -->
