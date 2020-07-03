@@ -13,10 +13,15 @@
 
 	<footer id="colophon" class="site-footer py-5">
         <div class="container">
-            <div class="row">
+            <div class="site-info row">
                 <div class="col-md-3">
                 <h3>AKO Signs</h3>
                 <p>AKO Signs is a Georgia based Sign Company with 30 years of experience in the industry. AKO Signs offers comprehensive custom sign services and products. We have two locations, one in Athens, and one in Augusta.</p>
+                <div class="d-flex flex-row">
+                    <a class="pl-0 pt-2 pr-2 pb-2 " href="https://www.facebook.com/AkoSigns/" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(971)); ?></a>
+                    <a class="p-2" href="https://www.instagram.com/akosigns/?hl=en" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(970)); ?></a>
+                    <a class="p-2" href="https://www.yelp.com/biz/ako-signs-athens" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(978)); ?></a>
+                </div>
                 </div>
                 <div class="col-md-3">
                 <h6>Athens</h6>
@@ -43,25 +48,19 @@
                 <?php endif; ?>
                 </div>
             </div>
-        </div>
-		<div class="site-info container py-5 d-flex flex-column flex-row-md">
-            <div class="d-flex flex-row">
-                <a class="p-2" href="https://www.facebook.com/AkoSigns/" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(971)); ?></a>
-                <a class="p-2" href="https://www.instagram.com/akosigns/?hl=en" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(970)); ?></a>
-                <a class="p-2" href="https://www.yelp.com/biz/ako-signs-athens" onclick="trackOutboundLink('https://www.facebook.com/AkoSigns/'); return false;"><?php echo(wp_get_attachment_image(978)); ?></a>
-            </div>
-            <div class="my-5">
-                <?php wp_nav_menu(
-				array(
-					'theme_location' => 'menu-2',
-					'menu_id'        => 'footer-menu',
-                    'menu_class'     => 'main-navigation navbar-nav',
-                    'container_class' => 'mr-auto'
-				)
-			);
-                ?>
-            </div>
-		</div><!-- .site-info -->
+            <hr>
+            <nav class="navbar navbar-expand pl-0">
+                    <span class="mr-5">&copy; AKO Signs Incorporated 2001-<?php echo date('Y'); ?></span>
+                    <?php wp_nav_menu(
+                    array(
+                        'theme_location' => 'menu-2',
+                        'menu_id'        => 'footer-menu',
+                        'menu_class'     => 'navbar-nav flex-row',
+                        'container_class' => 'ml-auto'
+                        )
+                    ); ?>              
+            </nav>
+		</div><!-- .container -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 <script>
