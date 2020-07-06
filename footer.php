@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-md-3">
                 <h6>Athens</h6>
-                <p>1625 Oconee St<br>Athens, GA 30605</p>
+                <p>4130 Lexington Rd<br>Athens, GA 30605</p>
                 <p>706-548-5389</p>
                 <h6>Augusta</h6>
                 <p>3801 Washington Rd<br>Augusta, GA 30907</p>
