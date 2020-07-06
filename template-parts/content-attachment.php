@@ -28,16 +28,18 @@ $previousImg = $data['previous_image'];
         </div>
         <!----/Loading Spinner----->
         <!----Close Button------>
-        <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $selected_tag; ?>"> 
+        <div id="close-button" class="">
+            <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $selected_tag; ?>"> 
             <button type="button" class="close img-close p-4" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-        </a>
+            </a>
+        </div>
         <!----/Close Button------>
         <!----Previous Image Nav Button---->
         <?php if ($previousImg) : ?>
         <a href="<?php echo $previousImg['link']; ?>">
-            <div class="img-left-nav p-4">
+            <div id="left-arrow" class="img-left-nav p-4">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-left.png">
             </div>
         </a>
@@ -46,14 +48,14 @@ $previousImg = $data['previous_image'];
         <!----Next Image Nav Button---->
         <?php if ($nextImg) : ?>
         <a href="<?php echo $nextImg['link']; ?>">
-            <div class="img-right-nav p-4">
+            <div id="right-arrow" class="img-right-nav p-4">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-right.png">
             </div>
         </a>
         <?php endif; ?>
         <!----/Next Image Nav Button---->
         <!----Current Image Info---->
-        <header class="entry-header header-image">
+        <header id="image-info" class="entry-header header-image">
             <div class="container">
                 <?php
                 the_title( '<h1 class="entry-title">', '</h1>' ); ?>

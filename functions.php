@@ -179,6 +179,10 @@ function charmer_scripts() {
         wp_enqueue_script( 'charmer-image-spinner', get_template_directory_uri() . '/js/image-loading-spinner.js', array(), _S_VERSION, true );
     }
     
+    if ( get_post_type() == 'attachment' ) {
+        wp_enqueue_script( 'charmer-image-lightbox-hover', get_template_directory_uri() . '/js/image-lightbox-hover.js', array(), _S_VERSION, true );
+    }
+    
     wp_enqueue_script( 'bootstrap-js-jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), _S_VERSION, true  );
     
     //wp_enqueue_script( 'jquery-ui-min', "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js", array(), _S_VERSION, true );
