@@ -183,7 +183,7 @@ function charmer_scripts() {
         wp_enqueue_script( 'charmer-image-lightbox-hover', get_template_directory_uri() . '/js/image-lightbox-hover.js', array(), _S_VERSION, true );
     }
     
-    if ( get_post_type() == 'sign-products' ) {
+    if ( get_post_type() == 'sign-products' || is_page('Work') ) {
         wp_enqueue_script( 'charmer-thumbnail-scale', get_template_directory_uri() . '/js/thumbnail-scale-on-hover.js', array(), _S_VERSION, true );
     }
     
