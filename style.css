@@ -1119,7 +1119,7 @@ a.badge:visited {
     bottom: 0;
     width: 100%;
     color: #fff;
-    background-color: rgba(0,0,0,0.3);
+    background: linear-gradient(0deg, rgba(0,0,0,0.8), 80%, rgba(0,0,0,0));
 }
 
 .container-image {
@@ -1147,14 +1147,14 @@ a.badge:visited {
     position: absolute;
     left: 0;
     top: 40%;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.5);
     opacity: 50%;
 } 
 .img-right-nav {
     position: absolute;
     right: 0;
     top: 40%;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.5);
     opacity: 50%;
 }
 
