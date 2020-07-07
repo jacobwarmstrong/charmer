@@ -65,7 +65,7 @@ if(!empty($images)) {
     <?php if( !empty($images) ) : ?>
     <div class="charmer-gallery row">
         <?php foreach($images as $image) : ?>
-            <div class="col-md-4">
+            <div class="col-md-4 image-boundaries">
                 <?php charmer_get_attachment_link($image->ID, $tag); ?>
             </div>
         <?php endforeach; ?>

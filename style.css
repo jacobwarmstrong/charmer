@@ -1234,3 +1234,27 @@ footer a:focus {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
+.image-boundaries {
+    overflow: hidden;
+
+}
+
+.hover-scale {
+    max-width: none;
+    width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.hover-scale:hover {
+    width: 130%;
+    margin: calc(-15% * .78) -15%;
+    height: auto;
+    max-width: none;
+}
+
+
+
