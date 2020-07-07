@@ -730,7 +730,7 @@ a:active {
 }
 
 .btn-outline-light:hover {
-    color: #0f4168;
+    color: #333;
 }
 
 .btn-outline-dark {
@@ -1084,10 +1084,6 @@ object {
     color: #fff;
 }
 
-a.badge:visited {
-    color: #fff;
-}
-
 .badge-selected {
     background-color: #409dff;
 }
@@ -1240,7 +1236,7 @@ footer a:focus {
 
 }
 
-.hover-scale {
+.gallery-thumb {
     max-width: none;
     width: 100%;
     -webkit-transition: all 0.5s ease;
@@ -1249,12 +1245,42 @@ footer a:focus {
     transition: all 0.5s ease;
 }
 
-.hover-scale:hover {
-    width: 130%;
-    margin: calc(-15% * .78) -15%;
+.hover-scale {
+    width: 120%;
+    margin: calc(-10% * .78) -10%;
     height: auto;
     max-width: none;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
+.badge-pill-outline-light:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.image-info-overlay {
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.image-info-overlay:hover {
+    opacity: 1.0;
+}
+
+.image-info-overlay h3 {
+    font-size: 1em;
+}
 
 

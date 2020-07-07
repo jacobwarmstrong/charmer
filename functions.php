@@ -184,7 +184,7 @@ function charmer_scripts() {
     }
     
     if ( get_post_type() == 'sign-products' ) {
-        wp_enqueue_script( 'charmer-image-hover-scale', get_template_directory_uri() . '/js/image-hover-scale.js', array(), _S_VERSION, true );
+        wp_enqueue_script( 'charmer-thumbnail-scale', get_template_directory_uri() . '/js/thumbnail-scale-on-hover.js', array(), _S_VERSION, true );
     }
     
     wp_enqueue_script( 'bootstrap-js-jquery', "https://code.jquery.com/jquery-3.4.1.slim.min.js", array(), _S_VERSION, true  );
@@ -366,9 +366,10 @@ function create_industry_nonhierarchical_taxonomy() {
 function charmer_get_attachment_link($post_id, $tag = null) {
     //use wordpress functions to get our img info
     $img['src'] = wp_get_attachment_image_src($post_id, 'sign-gallery')[0];
+    $img['title'] = get_the_title($post_id);
     $img['alt'] = get_post_meta($post_id, '_wp_attachment_image_alt', true);
     $img['uri'] = get_permalink($post_id);
-    $img['class'] = 'hover-scale';
+    $img['class'] = 'gallery-thumb';
     
     //if tag is in arg, then add it to the uri
     if($tag) {
@@ -377,6 +378,7 @@ function charmer_get_attachment_link($post_id, $tag = null) {
     
     //assemble img html
     $html = '<a href="' . $img['uri'] . '">';
+    $html .= '<div class="image-info-overlay d-flex justify-content-center align-items-center"><h3>'. $img['title']. '</h3></div>';
     $html .= '<img class="' . $img['class'] .'" src="' . $img['src'] . '" ';
     $html .= '"alt="' . $img['alt'] . '">';
     $html .= '</a>';

@@ -68,7 +68,7 @@ $previousImg = $data['previous_image'];
                 <div class="my-3 d-flex flex-row- flex-wrap">
                     <span class="mr-2">Tags: </span>
                     <?php foreach ($tags as $tag) : ?>
-                    <a href="/sign-products/<?php echo $category->slug; ?>/?tag=<?php echo $tag->term_id; ?>" class="badge badge-pill badge-pill-outline-light p-1 mr-2 mb-2"><?php echo $tag->name; ?></a>
+                    <a href="/sign-products/<?php echo $category->slug; ?>/?tag=<?php echo $tag->term_id; ?>" class="badge badge-pill badge-pill-outline-light p-2 mr-2 mb-2"><?php echo $tag->name; ?></a>
                     <?php endforeach; ?>
                 </div>
             </div>
