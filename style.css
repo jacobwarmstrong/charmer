@@ -1283,8 +1283,4 @@ footer a:focus {
     font-size: 1em;
 }
 
-.woocommerce div.product form.cart .variations select {
-    max-width: none;
-    min-width: auto;
-}
 

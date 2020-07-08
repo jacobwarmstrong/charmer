@@ -587,8 +587,12 @@ function setup_lightbox_images($id) {
 }
 add_filter('filter_images', 'setup_lightbox_images');
 
-
-
+//Add bootstrap form control class to product variations in woocommerce.
+function add_bootstrap_to_woo_variations( $args ) {
+    $args['class'] .= ' form-control';
+    return $args;
+}
+add_filter('woocommerce_dropdown_variation_attribute_options_args', 'add_bootstrap_to_woo_variations');
 
 
 
