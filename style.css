@@ -1054,7 +1054,7 @@ object {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgba(255,255,255,1);     
+    background-color: #2695ff;     
 }
 
 @media screen and (min-width: 37.5em) {
@@ -1320,4 +1320,14 @@ footer a:focus {
 
 .woocommerce div.product form.cart div.quantity {
     float: none;
+}
+
+@media screen and (max-width: 812px) {
+    .woocommerce div.product .woocommerce-tabs ul.tabs li a {
+        font-size: 70%;
+    }
+}
+
+.charmer-shop-navbar-mobile>div>a {
+    color: #fff;
 }
