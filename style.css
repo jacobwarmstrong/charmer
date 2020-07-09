@@ -1296,3 +1296,28 @@ footer a:focus {
 .single_variation {
     margin-bottom: 2em;
 }
+
+.woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover {
+    background-color: #ffbb80;
+}
+
+.product_meta {
+    font-family: sans-serif;
+    font-size: 75%;
+}
+
+.product_meta span {
+    display: block;
+}
+
+.product_meta span .sku {
+    display: inline;
+}
+
+.product_meta a {
+    color: #828282;
+}
+
+.woocommerce div.product form.cart div.quantity {
+    float: none;
+}
