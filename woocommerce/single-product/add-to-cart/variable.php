@@ -31,24 +31,20 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
 		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
 	<?php else : ?>
-    <div class="charmer-variations">
-        <form>
+    <div class="variations charmer-variations">
         <?php foreach ( $attributes as $attribute_name => $options ) : ?>
-            <div class="form-group">
                 <label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label>
                     <?php
                         wc_dropdown_variation_attribute_options(
                             array(
                                 'options'   => $options,
                                 'attribute' => $attribute_name,
-                                'product'   => $product,
+                                'product'   => $product
                             )
                         );
                         echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
                     ?>
-            </div>
         <?php endforeach; ?>
-        </form>
     </div>
 
 
