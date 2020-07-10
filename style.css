@@ -1331,3 +1331,7 @@ footer a:focus {
 .charmer-shop-navbar-mobile>div>a {
     color: #fff;
 }
+
+.tm-extra-product-options-totals, .tm-custom-price-totals {
+    display: none;
+}
