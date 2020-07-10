@@ -1332,6 +1332,14 @@ footer a:focus {
     color: #fff;
 }
 
+
+/* Temporary Fix, needs better solution */
 .tm-extra-product-options-totals, .tm-custom-price-totals {
     display: none;
+}
+
+.badge {
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro';
+    font-size: 65%;
 }
