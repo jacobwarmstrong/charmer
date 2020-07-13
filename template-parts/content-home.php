@@ -62,7 +62,7 @@
             $files = scandir($dir);
             foreach ($files as $file) :
                 if(strpos($file, '.') !== 0) : ?>
-                    <div class="col-md-3 my-3 my-md-0 align-self-center d-flex justify-content-center">
+                    <div class="col-md-3 my-3 my-md-0 align-self-center d-flex justify-content-center client-logo">
                         <img class="" src="<?php echo $url . $file; ?>">
                     </div>
                 <?php endif;

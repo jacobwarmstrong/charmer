@@ -145,12 +145,15 @@ function charmer_widgets_init() {
 		)
 	);
 }
+
+
 add_action( 'widgets_init', 'charmer_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
 function charmer_scripts() {
+    
     wp_enqueue_style( 'bootstrap-style', "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" );
     
     wp_enqueue_style( 'google-fonts-style', "https://fonts.googleapis.com/css2?family=PT+Serif+Caption" );
@@ -158,10 +161,18 @@ function charmer_scripts() {
     wp_enqueue_style( 'google-fonts-style-2', "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap" );
     wp_enqueue_style( 'charmer-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'charmer-style', 'rtl', 'replace' );
+    
+    //update jquery to 3.1.1
+    wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
 
 	wp_enqueue_script( 'charmer-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	wp_enqueue_script( 'charmer-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
+    
+    wp_enqueue_script( 'bootstrap-js-popper', "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js", array('jquery'), _S_VERSION, true );
+        
+    wp_enqueue_script( 'bootstrap-js', "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js", array('jquery'), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -187,9 +198,11 @@ function charmer_scripts() {
         wp_enqueue_script( 'charmer-thumbnail-scale', get_template_directory_uri() . '/js/thumbnail-scale-on-hover.js', array(), _S_VERSION, true );
     }
     
-    wp_enqueue_script( 'bootstrap-js-popper', "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js", array(), _S_VERSION, true );
-        
-    wp_enqueue_script( 'bootstrap-js', "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js", array(), _S_VERSION, true );
+    if ( is_front_page() ) {
+        wp_enqueue_script( 'charmer-client-animation', get_template_directory_uri() . '/js/client-animation.js', array('jquery'), _S_VERSION, true );  
+    }
+    
+    wp_enqueue_script( 'charmer-popup-modal', get_template_directory_uri() . '/js/pop-up-modal.js', array('jquery'), _S_VERSION, true );
     
     
 }
