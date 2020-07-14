@@ -1346,7 +1346,7 @@ footer a:focus {
 
 /*bounce up animation for the subject*/
 
-.client-logo {
+.fade-in {
   opacity: 0;
   -moz-transition: all 700ms ease-out;
   -webkit-transition: all 700ms ease-out;
@@ -1364,6 +1364,7 @@ footer a:focus {
 
 .in-view {
   opacity: 1;
+  transition-delay: .3s;
   -moz-transform: translate3d(0px, 0px, 0px);
   -webkit-transform: translate3d(0px, 0px, 0px);
   -o-transform: translate(0px, 0px);
