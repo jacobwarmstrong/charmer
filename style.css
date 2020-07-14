@@ -381,7 +381,7 @@ textarea {
 
 .jumbotron h1 {
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 3em;
+    font-size: 3.5rem;
     font-weight: 900;
 }
 
@@ -1370,4 +1370,13 @@ footer a:focus {
   -o-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
   transform: translate3d(0px, 0px, 0px);
+}
+
+.persuasion-block div p {
+    font-size: 1.25rem;
+    line-height: 2;
+}
+
+.display-4 {
+    font-size: 3.25rem;
 }

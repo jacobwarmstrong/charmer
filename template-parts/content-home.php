@@ -25,29 +25,25 @@
     </div>
   </div>
 </div>
-
-	<header class="entry-header container">
-		<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
-	</header><!-- .entry-header -->
     <div class="container py-5 fade-in-container">
         <div class="fade-in-container">
-            <div class="row my-4 fade-in">
-                <div class="col-sm-3 mb-4">
+            <div class="persuasion-block row my-5 py-5 fade-in">
+                <div class="col-sm-5 mb-4">
                     <?php echo wp_get_attachment_image(get_field('image') , 'large', false, ['class' => 'img-fluid mx-auto d-block']); ?>
                 </div>
-                <div class="col-sm-9">
-                    <h3><?php the_field('headline'); ?></h3>
+                <div class="col-sm-7">
+                    <h3 class="display-4"><?php the_field('headline'); ?></h3>
                     <p><?php the_field('copy'); ?></p>
                 </div>
             </div>
         </div>
         <div class="fade-in-container">
-            <div class="row fade-in">
-                <div class="col-sm-3 mb-4">
+            <div class="persuasion-block row my-5 py-5 fade-in">
+                <div class="col-sm-5 mb-4">
                     <?php echo wp_get_attachment_image(get_field('image2') , 'large', false, ['class' => 'img-fluid mx-auto d-block']); ?>
                 </div>
-                <div class="col-sm-9">
-                    <h3><?php the_field('headline2'); ?></h3>
+                <div class="col-sm-7">
+                    <h3 class="display-4"><?php the_field('headline2'); ?></h3>
                     <p><?php the_field('copy2'); ?></p>
                 </div>
             </div>

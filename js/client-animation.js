@@ -8,7 +8,7 @@
           var window_height = $window.height();
           var window_top_position = $window.scrollTop();
           var window_bottom_position = (window_top_position + window_height);
-
+            
 
           $.each(logos, function() {
             var $element = $(this);
@@ -23,15 +23,14 @@
             var container_bottom_position = (container_top_position + container_height);
 
             //check to see if this current container is within viewport
-            if ((container_bottom_position >= window_top_position) &&
-              (container_top_position <= window_bottom_position)) {
+            if (container_top_position <= window_bottom_position) {
               $element.addClass('in-view');
-            } else {
-              $element.removeClass('in-view');
+              //set counter to 1 so it only runs once.
+              counter = 1;
             }
           });
         }
-
+        
         $window.on('scroll resize', check_if_in_view );
         $window.trigger('scroll');
 
