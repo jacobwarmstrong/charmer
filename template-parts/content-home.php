@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="grey-box fade-in-container">
-        <div class="container py-5">
+        <div class="container">
             <h3>We Work with the Big Names</h3>
             <div class=" d-flex flex-column flex-md-row align-content-stretch flex-wrap my-3">
             <?php
@@ -60,7 +60,7 @@
             $files = scandir($dir);
             foreach ($files as $file) :
                 if(strpos($file, '.') !== 0) : ?>
-                    <div class="col-md-3 my-3 my-md-0 align-self-center d-flex justify-content-center fade-in">
+                    <div class="col-md-3 py-5 my-md-0 align-self-center d-flex justify-content-center fade-in">
                         <img class="" src="<?php echo $url . $file; ?>">
                     </div>
                 <?php endif;
@@ -69,7 +69,11 @@
             </div>
         </div>
     </div>
-    
+    <div class="container py-5">
+        <h3>But No Job is Too Small</h3>
+        <script src="https://googlereviews.cws.net/google-reviews.js"></script><br />
+        <script>load_google_reviews("ChIJGfqnA5Rs9ogRkLud45u7688");</script>
+    </div>
     
 	<div class="entry-content">
 		<?php
