@@ -27,10 +27,11 @@ $previousImg = $data['previous_image'];
           <span class="sr-only">Loading...</span>
         </div>
         <!----/Loading Spinner----->
+        <div class="button-container">
         <!----Close Button------>
         <div id="close-button" class="">
             <a href="/sign-products/<?php echo $category->slug . '/?tag=' . $selected_tag; ?>"> 
-            <button type="button" class="close img-close p-4" aria-label="Close">
+            <button type="button" class="close img-close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             </a>
@@ -39,8 +40,8 @@ $previousImg = $data['previous_image'];
         <!----Previous Image Nav Button---->
         <?php if ($previousImg) : ?>
         <a href="<?php echo $previousImg['link']; ?>">
-            <div id="left-arrow" class="img-left-nav p-4">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-left.png">
+            <div id="left-arrow" class="img-left-nav">
+                <img class="mx-auto" src="<?php echo get_template_directory_uri(); ?>/assets/arrow-left.png">
             </div>
         </a>
         <?php endif; ?>
@@ -48,18 +49,21 @@ $previousImg = $data['previous_image'];
         <!----Next Image Nav Button---->
         <?php if ($nextImg) : ?>
         <a href="<?php echo $nextImg['link']; ?>">
-            <div id="right-arrow" class="img-right-nav p-4">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-right.png">
+            <div id="right-arrow" class="img-right-nav">
+                <img class="mx-auto" img src="<?php echo get_template_directory_uri(); ?>/assets/arrow-right.png">
             </div>
         </a>
         <?php endif; ?>
         <!----/Next Image Nav Button---->
+        <!----Current Image---->
+        <img id="image" src="<?php echo $currentImg['src']; ?>" alt="<?php echo $currentImg['alt']; ?>">
+        <!----/Current Image---->
+        </div><!----/button-container>
         <!----Current Image Info---->
         <header id="image-info" class="entry-header header-image">
             <div class="container">
                 <?php
                 the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
                 <p><?php echo wp_get_attachment_caption( ); ?></p>
                 <?php charmer_entry_footer(); ?>
                 <div class="my-3 d-flex flex-row- flex-wrap">
@@ -74,8 +78,5 @@ $previousImg = $data['previous_image'];
             </div>
         </header><!-- .entry-header -->
         <!----/Current Image Info---->
-        <!----Current Image---->
-        <img id="image" src="<?php echo $currentImg['src']; ?>" alt="<?php echo $currentImg['alt']; ?>">
-        <!----/Current Image---->
     </div>
 </div><!-- #post-<?php the_ID(); ?> -->

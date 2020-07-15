@@ -555,6 +555,21 @@ table {
     color: #fff;
 }
 
+.btn-secondary {
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #0062cc;
+}
+
+.btn-secondary:visited {
+    color: #fff;
+}
+
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1099,11 +1114,10 @@ object {
 }
 
 .full-screen {
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000;
+
 }
 
 .full-screen img {
@@ -1111,57 +1125,89 @@ object {
 }
 
 .header-image {
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
-    color: #fff;
-    background: linear-gradient(0deg, rgba(0,0,0,0.8), 80%, rgba(0,0,0,0));
+    color: #333;
+
 }
 
 .container-image {
     position: inherit;
 }
 
+.button-container {
+    position: relative;
+}
+
+.badge-pill-outline-light {
+    color: #333;
+    border: 1px solid #333;
+    background-color: transparent;
+}
+
+.img-left-nav, .img-right-nav, .img-close {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 50%;
+    padding: .5em;
+    color: #fff;
+}
+
+.img-left-nav img, .img-right-nav img {
+    width: 50%;
+    display: block;
+}
+
+.img-left-nav {
+    left: 0;
+    top: 40%;
+}
+
+.img-right-nav {
+    right: 0;
+    top: 40%;
+}
+
+.img-close {
+    top: 0;
+    right: 0;
+}
+
 @media screen and (min-width: 37.5em) {
+    .full-screen {
+        min-height: 100vh;
+        background-color: #000;
+    }
+    
+    .button-container {
+        position: inherit;
+    }
+    
     .container-image {
         position: relative;
     }
     
     .header-image {
+        position: absolute;
         top: auto;
+        left: 0;
         bottom: 0;
+        color: #fff;
+        background: linear-gradient(0deg, rgba(0,0,0,0.8), 80%, rgba(0,0,0,0));
     }
-}
-
-.badge-pill-outline-light {
-    color: #f8f9fa;
-    border: 1px solid #f8f9fa;
-    background-color: transparent;
-}
-
-.img-left-nav {
-    position: absolute;
-    left: 0;
-    top: 40%;
-    background-color: rgba(0,0,0,0.5);
-    opacity: 50%;
-} 
-.img-right-nav {
-    position: absolute;
-    right: 0;
-    top: 40%;
-    background-color: rgba(0,0,0,0.5);
-    opacity: 50%;
-}
-
-.img-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 5rem;
-    color: #fff;
-    background-color: rgba(0,0,0,0.5);
+    
+    .badge-pill-outline-light {
+        color: #f8f9fa;
+        border: 1px solid #f8f9fa;
+        background-color: transparent;
+    }
+    
+    .img-left-nav, .img-right-nav, .img-close {
+        padding: 1em;
+    }
+    
+    .img-left-nav img, .img-right-nav img {
+        width: 100%;
+    }
 }
 
 .woocommerce button.button.alt {

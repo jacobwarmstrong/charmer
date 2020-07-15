@@ -1,4 +1,9 @@
 //Image Lightbox hover
+
+var $categoryBtn = $('.btn');
+var $tagBadges = $('.badge');
+var $window = $(window);
+
 var timer;
 var mouseMoving = false;
 var imageInfo = document.getElementById('image-info');
@@ -59,3 +64,27 @@ for(i=0;i<areas.length;i++) {
         switchDisplay('off');
     });
 }
+
+console.log( $window.width() );
+
+//on load 
+if ($window.width() <= 425) {
+    $categoryBtn.removeClass('btn-outline-light');
+    $categoryBtn.addClass('btn-secondary');
+    $tagBadges.each(function() {
+        $(this).addClass('badge-primary');
+        $(this).removeClass('badge-pill-outline-light');
+    });
+}
+
+//on resize check again
+$window.resize(function() {
+    if ($window.width() <= 425) {
+        $categoryBtn.removeClass('btn-outline-light');
+        $categoryBtn.addClass('btn-secondary');
+        $tagBadges.each(function() {
+            $(this).addClass('badge-primary');
+            $(this).removeClass('badge-pill-outline-light');
+        });
+    }
+});
