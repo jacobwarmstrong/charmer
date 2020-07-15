@@ -67,12 +67,12 @@ $previousImg = $data['previous_image'];
                 <p><?php echo wp_get_attachment_caption( ); ?></p>
                 <?php charmer_entry_footer(); ?>
                 <div class="my-3 d-flex flex-row- flex-wrap">
-                    <a href="/sign-products/<?php echo $category->slug; ?>" class="btn btn-outline-light"><?php echo ucwords($category->name); ?></a>
+                    <a href="/sign-products/<?php echo $category->slug; ?>" class="btn btn-secondary"><?php echo ucwords($category->name); ?></a>
                 </div>
                 <div class="my-3 d-flex flex-row- flex-wrap">
                     <span class="mr-2">Tags: </span>
                     <?php foreach ($tags as $tag) : ?>
-                    <a href="/sign-products/<?php echo $category->slug; ?>/?tag=<?php echo $tag->term_id; ?>" class="badge badge-pill badge-pill-outline-light p-2 mr-2 mb-2"><?php echo $tag->name; ?></a>
+                    <a href="/sign-products/<?php echo $category->slug; ?>/?tag=<?php echo $tag->term_id; ?>" class="badge badge-pill badge-primary p-2 mr-2 mb-2"><?php echo $tag->name; ?></a>
                     <?php endforeach; ?>
                 </div>
             </div>
