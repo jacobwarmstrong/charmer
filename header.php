@@ -69,7 +69,19 @@ if ( is_page_template('page-jumbotron.php') ) {
                     'container_class' => 'mr-auto'
 				)
 			);
+              
 			?>
+              <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Locations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="AKO Signs Locations">
+                      <a class="dropdown-item" href="<?php echo get_permalink(1647); ?>">Athens</a>
+                      <a class="dropdown-item" href="<?php echo get_permalink(1652); ?>">Augusta</a>
+                    </div>
+                  </li>
+              </ul>
             <?php
             if ( is_woocommerce() || is_page('My Account') || is_page('Cart')) : 
               if ( is_user_logged_in() ) : ?>

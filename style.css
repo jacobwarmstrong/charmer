@@ -700,10 +700,6 @@ a:active {
 
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
 	z-index: 99999;
 }
 
@@ -1426,4 +1422,12 @@ footer a:focus {
 
 .display-4 {
     font-size: 3.25rem;
+}
+
+.sub-menu li a {
+    color: rgba(255,255,255,.5);
+}
+
+.sub-menu li {
+    padding-left: 1em;
 }
