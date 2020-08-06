@@ -29,7 +29,12 @@ get_header( ); ?>
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
 		do_action( 'woocommerce_before_main_content' );
+    
 	?>
+    
+    <div class="my-3">
+        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/free-shipping.png" alt="AKO Signs Free Shipping On All Orders">
+    </div>
 
 		<?php while ( have_posts() ) : ?>
 			<?php the_post(); ?>
