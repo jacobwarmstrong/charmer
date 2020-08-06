@@ -66,12 +66,12 @@ if ( is_page_template('page-jumbotron.php') ) {
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
                     'menu_class'     => 'main-navigation navbar-nav',
-                    'container_class' => 'mr-auto'
+                    'container_class' => ''
 				)
 			);
               
 			?>
-              <ul class="navbar-nav">
+              <ul class="navbar-nav mr-auto">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Locations
