@@ -33,7 +33,7 @@ get_header( ); ?>
 	?>
     
     <div class="my-3">
-        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/free-shipping.png" alt="AKO Signs Free Shipping On All Orders Over $75">
+        <img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/assets/free-shipping-over-75.png" alt="AKO Signs Free Shipping On All Orders Over $75">
     </div>
 
 		<?php while ( have_posts() ) : ?>
