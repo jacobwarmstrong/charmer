@@ -603,6 +603,23 @@ function add_bootstrap_to_woo_variations( $args ) {
 }
 add_filter('woocommerce_dropdown_variation_attribute_options_args', 'add_bootstrap_to_woo_variations');
 
+/**
+ * Change number or products per row to 6 or 3
+ */
+add_filter('loop_shop_columns', 'loop_columns', 999);
+if (!function_exists('loop_columns')) {
+	function loop_columns() {
+        if (is_product_category('aluminum-jobsite-signs') ) {
+            return 6; // 6 products for many variations
+        } else {
+            return 3; // 3 products per row
+        }
+
+	}
+}
+
+
+
 
 
 
