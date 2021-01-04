@@ -1432,6 +1432,10 @@ footer a:focus {
     padding-left: 1em;
 }
 
+.quick-view-button {
+    display: block;
+}
+
 form.cart {
     margin-top: 15px;
 }
