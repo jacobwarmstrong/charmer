@@ -60,8 +60,6 @@ $allowed_html = array(
     }
 
     echo '</ul>';
-} else {
-    echo 'yeah no hunny';
 }
 ?>
 <p>
