@@ -38,30 +38,7 @@ $allowed_html = array(
 	);
 	?>
 </p>
-<?php if ( strpos( do_shortcode('[woocommerce_member_active_plans]'), 'JE Dunn') ) {
-    $product_cats = get_terms(array(
-        'taxonomy' => 'product_cat',
-        'child_of' => 247
-    ));
-    echo '<ul>';
 
-    foreach ( $product_cats as $term ) {
-
-        // The $term is an object, so we don't need to specify the $taxonomy.
-        $term_link = get_term_link( $term );
-
-        // If there was an error, continue to the next term.
-        if ( is_wp_error( $term_link ) ) {
-            continue;
-        }
-
-        // We successfully got a link. Print it out.
-        echo '<li><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></li>';
-    }
-
-    echo '</ul>';
-}
-?>
 <p>
 	<?php
 	/* translators: 1: Orders URL 2: Address URL 3: Account URL. */
@@ -78,6 +55,35 @@ $allowed_html = array(
 	);
 	?>
 </p>
+
+<?php if ( strpos( do_shortcode('[woocommerce_member_active_plans]'), 'JE Dunn') ) {
+    $product_cats = get_terms(array(
+        'taxonomy' => 'product_cat',
+        'child_of' => 247
+    ));
+    
+    echo '<div class="container"><h1>JE Dunn Products</h1><div class="row">';
+
+    foreach ( $product_cats as $term ) {
+        
+
+        // The $term is an object, so we don't need to specify the $taxonomy.
+        $term_link = get_term_link( $term );
+        
+        $term_desc = $term->description;
+
+        // If there was an error, continue to the next term.
+        if ( is_wp_error( $term_link ) ) {
+            continue;
+        }
+
+        
+        echo '<div class="col-4"><h3><a href="' . esc_url( $term_link ) . '">' . $term->name . '</a></h3><p>' . $term_desc . '</p></div>';
+    }
+    echo '</div></div>';
+}
+?>
+
 
 <?php
 	/**
