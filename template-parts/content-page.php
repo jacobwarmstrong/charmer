@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'container' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( '' ); ?>>
 
 	<?php charmer_post_thumbnail(); ?>
 

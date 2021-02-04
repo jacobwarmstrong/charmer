@@ -1082,6 +1082,8 @@ object {
 
 .site-main {
     min-height: calc(100vh - 200px);
+    width: 100%;
+    margin-top: -104px;
 }
 
 .dropdown-toggle {
@@ -1124,6 +1126,13 @@ object {
     width: 100%;
     color: #333;
 
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container-image {
@@ -1443,4 +1452,12 @@ form.cart {
 html[lang="en-US"] .quantity:before {
     content: "";
     margin-right: 0;
+}
+
+.wp-block-group__inner-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
 }
