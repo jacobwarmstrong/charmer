@@ -10,12 +10,6 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'container' ); ?>>
-    
-    <?php if (!is_page( 'my-account') ) : ?>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-    <?php endif; ?>
 
 	<?php charmer_post_thumbnail(); ?>
 
