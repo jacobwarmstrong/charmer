@@ -10,13 +10,8 @@
  */
 
 //select navbar classes based on page template
-if ( is_page_template('page-jumbotron.php') ) {
     $nav_classes = ' navbar-dark';
     $contact_classes = ' btn-outline-light nav-link';
-} else {
-    $nav_classes = ' navbar-light';
-    $contact_classes = ' btn-outline-dark';
-}
 
 ?>
 <!doctype html>
